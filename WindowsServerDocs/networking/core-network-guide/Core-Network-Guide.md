@@ -544,8 +544,8 @@ You can use the following commands to install and configure AD DS and DNS. You m
 
 >[!NOTE]
 >For more information about these Windows PowerShell commands, see the following reference topics.
->- [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/server-manager/install-windowsfeature)
->- [Install-ADDSForest](https://technet.microsoft.com/itpro/powershell/windows/adds/deployment/install-addsforest)
+>- [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps)
+>- [Install-ADDSForest](https://docs.microsoft.com/powershell/module/addsdeployment/install-addsforest?view=win10-ps)
 
 Membership in **Administrators** is the minimum required to perform this procedure.
 
@@ -555,11 +555,11 @@ Membership in **Administrators** is the minimum required to perform this procedu
 
 When installation has successfully completed, the following message is displayed in Windows PowerShell.
 
-    
-    Success Restart Needed 	Exit Code  	Feature Result
-    ------- -------------- 	---------  	--------------
-    True	No 				Success		{Active Directory Domain Services, Group P...
-    
+
+    Success Restart Needed  Exit Code   Feature Result
+    ------- --------------  ---------   --------------
+    True    No              Success     {Active Directory Domain Services, Group P...
+
 
 - In Windows PowerShell, type the following command, replacing the text **corp.contoso.com** with your domain name, and then press ENTER:
 
@@ -569,19 +569,21 @@ Install-ADDSForest -DomainName "corp.contoso.com"
 
 - During the installation and configuration process, which is visible at the top of the Windows PowerShell window, the following prompt appears. After it appears, type a password and then press ENTER.
 
-	**SafeModeAdministratorPassword:**
+    **SafeModeAdministratorPassword:**
 
 - After you type a password and press ENTER, the following confirmation prompt appears. Type the same password and then press ENTER.
 
-	**Confirm SafeModeAdministratorPassword:**
+    **Confirm SafeModeAdministratorPassword:**
 
 - When the following prompt appears, type the letter **Y** and then press ENTER.
 
-    
-    The target server will be configured as a domain controller and restarted when this operation is complete.
-    Do you want to continue with this operation?
-    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
-    
+
+~~~
+The target server will be configured as a domain controller and restarted when this operation is complete.
+Do you want to continue with this operation?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+~~~
+
 - If you want to, you can read the warning messages that are displayed during normal, successful installation of AD DS and DNS. These messages are normal and are not an indication of install failure.
 
 - After installation succeeds, a message appears stating that you are about to be logged off of the computer so that the computer can restart. If you click **Close**, you are immediately logged off the computer, and the computer restarts. If you do not click **Close**, the computer restarts after a default period of time.
@@ -1152,7 +1154,7 @@ For more information about the technologies in this guide, see the following res
 
  Windows Server 2016,  Windows Server 2012 R2 , and  Windows Server 2012  Technical Library Resources
 
--   [What's new in Active Directory Domain Services (AD DS) in Windows Server 2016](https://technet.microsoft.com/en-us/library/mt163897.aspx)
+-   [What's new in Active Directory Domain Services (AD DS) in Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
 
 -   [Active Directory Domain Services overview](https://technet.microsoft.com/library/hh831484.aspx) at https://technet.microsoft.com/library/hh831484.aspx.
 

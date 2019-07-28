@@ -5,8 +5,7 @@ keywords: privacy, GDPR
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
-ms.technology: 
-  - techgroup-security
+ms.technology: techgroup-security
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/25/2017
@@ -168,7 +167,7 @@ Privileged identities can get compromised when organizations don’t have guidel
 
 - **Social engineering research.** Most credential threats start out by researching the organization and then conducted through social engineering. For example, an attacker may perform an email phishing attack to compromise legitimate accounts (but not necessarily elevated accounts) that have access to an organization's network. The attacker then uses these valid accounts to perform additional research on your network and to identify privileged accounts that can perform administrative tasks. 
 
-- **Leverage accounts with elevated privileges.** Even with a normal, non-elevated user account in the network, attackers can gain access to accounts with elevated permissions. One of the more common methods of doing so is by using the Pass-the-Hash or Pass-the-Token attacks. For more information on the Pass-the-Hash and other credential theft techniques, see the resources on the [Pass-the-Hash (PtH) page](https://technet.microsoft.com/en-us/dn785092.aspx).
+- **Leverage accounts with elevated privileges.** Even with a normal, non-elevated user account in the network, attackers can gain access to accounts with elevated permissions. One of the more common methods of doing so is by using the Pass-the-Hash or Pass-the-Token attacks. For more information on the Pass-the-Hash and other credential theft techniques, see the resources on the [Pass-the-Hash (PtH) page](https://technet.microsoft.com/dn785092.aspx).
 
 There are of course other methods that attackers can use to identify and compromise privileged identities (with new methods being created every day). It is therefore important that you establish practices for users to log on with least-privileged accounts to reduce the ability of attackers to gain access to privileged identities. The sections below outline functionality where Windows Server can mitigate these risks.
 
@@ -357,7 +356,7 @@ You can use ATA to help detect attackers attempting to compromise privileged ide
 
 - **Windows Defender Credential Guard:** https://www.youtube.com/watch?v=F-pTkesjkhI and https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard
 
-- **Control Flow Guard:** https://msdn.microsoft.com/en-us/library/windows/desktop/mt637065(v=vs.85).aspx
+- **Control Flow Guard:** https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx
 
 - **Security and Assurance:** https://docs.microsoft.com/windows-server/security/security-and-assurance
 

@@ -6,8 +6,7 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology: 
-  - networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: beb94475-b21f-46a9-ac51-bf2bb28ca94e
@@ -35,7 +34,7 @@ You can use the management console on the Remote Access server to monitor remote
   
 4.  You will see the list of users who are connected to the Remote Access server and detailed statistics about them. Click the first row in the list that corresponds to a client. When you select a row, the remote user activity is shown in the preview pane.  
   
-![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)****Windows PowerShell equivalent commands****  
+![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>Windows PowerShell equivalent commands</em>***  
   
 The following Windows PowerShell cmdlet or cmdlets perform the same function as the preceding procedure. Enter each cmdlet on a single line, even though they may appear word-wrapped across several lines here because of formatting constraints.  
   
@@ -57,8 +56,7 @@ The user statistics can be filtered, based on criteria selections, by using the 
 |Resource Accessed|All users who are accessing a particular corporate resource or an endpoint. The value that corresponds to this field is the hostname/IP address of the server.|  
 |Server|The Remote Access server to which clients are connected. This is relevant only for cluster and multisite deployments.|  
   
-## See Also  
-[Additional way to monitor DirectAccess machine/user activity on Windows 2012 and 2012R2 DirectAccess with component event logging](http://blogs.technet.com/b/martin_j_solis/archive/2015/03/20/additional-way-to-monitor-directaccess-machine-user-activity-on-windows-2012-and-2012r2-directaccess-with-component-even-logging.aspx)  
+  
   
 
 

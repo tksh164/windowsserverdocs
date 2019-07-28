@@ -12,7 +12,7 @@ ms.assetid: 7afc65f8-3158-49c9-9d48-4dab1c69afba
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 04/17/2018
+ms.date: 10/09/2018
 ms.localizationpriority: medium
 ---
 # Get started with Remote Desktop on Mac
@@ -21,7 +21,7 @@ ms.localizationpriority: medium
 
 You can use the Remote Desktop client for Mac to work with Windows apps, resources, and desktops from your Mac computer. Use the following information to get started - and check out the [FAQ](remote-desktop-client-faq.md) if you have questions.
 
->[!Note]
+>[!NOTE]
 > - Curious about the new releases for the macOS client? Check out [What's new for Remote Desktop on Mac?](mac-whatsnew.md)
 > - The Mac client runs on computers running macOS 10.10 and newer.
 > - The information in this article applies primarily to the full version of the Mac client - the version available in the Mac AppStore. Test-drive new features by downloading our preview app here:  [beta client release notes](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409).
@@ -43,8 +43,15 @@ To create a remote desktop connection:
 
 1. In the Connection Center, click **+**, and then click **Desktop**.
 2. Enter the following information:
-   - **PC name** - the name of the computer. This can be a Windows computer name (found in the **System** settings), a domain name, or an IP address. You can also add port information to the end of this name, like **MyDesktop:3389**.
-   - **User Account** - Add the user account you use to access the remote PC. Use one of these formats: *user_name*, *domain\user_name*, or *user_name@domain.com*. You can also choose whether to require a password. When managing multiple user accounts with the same password, set a friendly name to differentiate the accounts. Manage your saved user accounts in the preferences of the app. 
+   - **PC name** - the name of the computer.
+      - This can be a Windows computer name (found in the **System** settings), a domain name, or an IP address.
+      - You can also add port information to the end of this name, like *MyDesktop:3389*.
+   - **User Account** - Add the user account you use to access the remote PC.
+     - For Active Directory (AD) joined computers or local accounts, use one of these formats: *user_name*, *domain\user_name*, or <em>user_name@domain.com</em>.
+     - For Azure Active Directory (AAD) joined computers, use one of these formats: *AzureAD\user_name* or <em>AzureAD\user_name@domain.com</em>.
+     - You can also choose whether to require a password.
+     - When managing multiple user accounts with the same user name, set a friendly name to differentiate the accounts.
+     - Manage your saved user accounts in the preferences of the app. 
 
 3. You can also set these optional settings for the connection:
    - Set a friendly name 
@@ -69,7 +76,7 @@ You can export a remote desktop connection definition and use it on a  different
 
 Use the following steps to import a remote desktop .RDP file.
 
-1. In the menu bar, click **File > Import**.
+1. In the menu bar, click **File** > **Import**.
 2. Browse to the .RDP file.
 3. Click **Open**.
 
@@ -100,8 +107,8 @@ To set up a new gateway in preferences:
 
 1. In the Connection Center, click **Preferences > Gateways**. 
 2. Click the **+** button at the bottom of the table Enter the following information:
-  - **Server name** – The name of the computer you want to use as a gateway. This can be a Windows computer name, an Internet domain name, or an IP address. You can also add port information to the server name (for example: **RDGateway:443** or **10.0.0.1:443**).
-  - **User name** - The user name and password to be used for the Remote Desktop gateway you are connecting to. You can also select **Use connection credentials** to use the same user name and password as those used for the remote desktop connection.
+   - **Server name** – The name of the computer you want to use as a gateway. This can be a Windows computer name, an Internet domain name, or an IP address. You can also add port information to the server name (for example: **RDGateway:443** or **10.0.0.1:443**).
+   - **User name** - The user name and password to be used for the Remote Desktop gateway you are connecting to. You can also select **Use connection credentials** to use the same user name and password as those used for the remote desktop connection.
 
 
 ## Manage your user accounts

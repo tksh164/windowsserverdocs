@@ -115,13 +115,12 @@ To enable SMT in a guest virtual machine, open a PowerShell window with sufficie
 
 ``` powershell
 Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <n>
-
-    Where <n> is the number of SMT threads per core the guest VM will see.  
-
-    Note that <n> = 0 will set the HwThreadCountPerCore value to match the host's SMT thread count per core value.
 ```
 
->[NOTE!] 
+Where <n> is the number of SMT threads per core the guest VM will see.  
+Note that <n> = 0 will set the HwThreadCountPerCore value to match the host's SMT thread count per core value.
+
+>[!NOTE] 
 >Setting HwThreadCountPerCore = 0 is supported beginning with Windows Server 2019.
 
 Below is an example of System Information taken from the guest operating system running in a virtual machine with 2 virtual processors and SMT enabled. The guest operating system is detecting 2 logical processors belonging to the same core.
@@ -137,7 +136,7 @@ Windows Server 2016 Hyper-V uses the classic hypervisor scheduler model by defau
 
 ## Windows Server 2019 Hyper-V defaults to using the core scheduler
 
-To help ensure Hyper-V hosts are deployed in the optimal security configuaration, Windows Server 2019 Hyper-V will now use the core hypervisor scheduler model by default. The host administrator may optionally configure the host to use the legacy classic scheduler. Administrators should carefully read, understand and consider the impacts each scheduler type has on the security and performance of virtualization hosts prior to overriding the scheduler type default settings.  See [Understanding Hyper-V scheduler type selection](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) for more information.
+To help ensure Hyper-V hosts are deployed in the optimal security configuration, Windows Server 2019 Hyper-V will now use the core hypervisor scheduler model by default. The host administrator may optionally configure the host to use the legacy classic scheduler. Administrators should carefully read, understand and consider the impacts each scheduler type has on the security and performance of virtualization hosts prior to overriding the scheduler type default settings.  See [Understanding Hyper-V scheduler type selection](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) for more information.
 
 ### Required updates
 
@@ -158,16 +157,14 @@ The hypervisor scheduler configuration is controlled via the hypervisorscheduler
 To select a scheduler type, open a command prompt with administrator privileges:
 
 ``` command
-
      bcdedit /set hypervisorschedulertype type
-
 ```
 
 Where `type` is one of:
 
 * Classic
-
 * Core
+* Root
 
 The system must be rebooted for any changes to the hypervisor scheduler type to take effect.
 
@@ -176,7 +173,7 @@ The system must be rebooted for any changes to the hypervisor scheduler type to 
 
 ## Determining the current scheduler type
 
-You can determine the current hypervisor scheduler type in use by examining the Sysem log in Event Viewer for the most recent hypervisor launch event ID 2, which reports the hypervisor scheduler type configured at hypervisor launch. Hypervisor launch events can be obtained from the Windows Event Viewer, or via PowerShell.
+You can determine the current hypervisor scheduler type in use by examining the System log in Event Viewer for the most recent hypervisor launch event ID 2, which reports the hypervisor scheduler type configured at hypervisor launch. Hypervisor launch events can be obtained from the Windows Event Viewer, or via PowerShell.
 
 Hypervisor launch event ID 2 denotes the hypervisor scheduler type, where:
 
@@ -197,7 +194,7 @@ Hypervisor launch event ID 2 denotes the hypervisor scheduler type, where:
 To query for hypervisor event ID 2 using PowerShell, enter the following commands from a PowerShell prompt.
 
 ``` powershell
-Get-WinEvent -FilterHashTable @{ProviderName="Microsoft-Windows-Hyper-V-Hypervisor"; ID=2} | select -Last 1
+Get-WinEvent -FilterHashTable @{ProviderName="Microsoft-Windows-Hyper-V-Hypervisor"; ID=2} -MaxEvents 1
 ```
 
 ![Screen shot showing PowerShell query and results for hypervisor launch event ID 2](media/Hyper-V-CoreScheduler-PowerShell.png)

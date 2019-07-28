@@ -11,7 +11,7 @@ ms.author: jgerend
 ---
 # Set the Ordering Method for Targets in Referrals
 
-> Applies to: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> Applies to: Windows Server 2019, Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 A referral is an ordered list of targets that a client computer receives from a domain controller or namespace server when the user accesses a namespace root or folder with targets. After the client receives the referral, the client attempts to access the first target in the list. If the target is not available, the client attempts to access the next target.
 Targets on the client's site are always listed first in a referral. Targets outside of the client's site are listed according to the ordering method.
@@ -30,9 +30,9 @@ Use the following procedure to set the ordering method on the namespace root:
 
 > [!NOTE]
 > To use Windows PowerShell to set the ordering method for targets in namespace root referrals, use the [Set-DfsnRoot](https://technet.microsoft.com/library/jj884281.aspx) cmdlet with one of the following parameters:
-   -   **EnableSiteCosting** specifies the **Lowest cost ordering** method
-   -   **EnableInsiteReferrals** specifies the **Exclude targets outside of the client's site** ordering method
-   -   Omitting either parameter specifies the **Random order** referral ordering method. 
+>    -   **EnableSiteCosting** specifies the **Lowest cost ordering** method
+>    -   **EnableInsiteReferrals** specifies the **Exclude targets outside of the client's site** ordering method
+>    -   Omitting either parameter specifies the **Random order** referral ordering method. 
 
 The DFSN Windows PowerShell module was introduced in Windows Server 2012.
    

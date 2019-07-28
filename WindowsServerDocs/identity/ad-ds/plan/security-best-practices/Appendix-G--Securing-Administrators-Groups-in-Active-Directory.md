@@ -26,7 +26,7 @@ For the Administrators group in each domain in the forest:
 
 1.  Remove all members from the Administrators group, with the possible exception of the built-in Administrator account for the domain, provided it has been secured as described in [Appendix D: Securing Built-In Administrator Accounts in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
-2.  In GPOs linked to OUs containing member servers and workstations in each domain, the DA group should be added to the following user rights in **Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\ User Rights Assignment**:  
+2.  In GPOs linked to OUs containing member servers and workstations in each domain, the BA group should be added to the following user rights in **Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\ User Rights Assignment**:  
 
     -   Deny access to this computer from the network  
 
@@ -227,7 +227,7 @@ From any member server or workstation that is not affected by the GPO changes (s
 
     ![secure admin groups](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_97.gif)  
 
-5.  In the **Command Prompt** window, type **net use \\\\<Server Name>\c$**, where <Server Name> is the name of the member server or workstation you're attempting to access over the network.  
+5.  In the **Command Prompt** window, type **net use \\\\\<Server Name\>\c$**, where \<Server Name\> is the name of the member server or workstation you're attempting to access over the network.  
 
 6.  The following screen shot shows the error message that should appear.  
 

@@ -38,6 +38,7 @@
 ##### [Virtualized Domain Controller Technical Reference (Level 300)](ad-ds/deploy/virtual-dc/Virtualized-Domain-Controller-Technical-Reference--Level-300-.md)
 ###### [Virtualized Domain Controller Architecture](ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md)
 ###### [Virtualized Domain Controller Deployment and Configuration](ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md)
+###### [Running Active Directory on Azure VMs](ad-ds/deploy/virtual-dc/adds-on-azure-vm.md)
 ###### [Virtualized Domain Controllers using Hyper-V](ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v.md)
 ###### [Virtualized Domain Controller Troubleshooting](ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md)
 ###### [Virtualized Domain Controller Technical Reference appendix](ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-appendix.md)
@@ -129,12 +130,13 @@
 #### [Upgrade Domain Controllers to Windows Server 2012 R2 and Windows Server 2012](ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md)
 #### [AD DS Simplified Administration](ad-ds/manage/AD-DS-Simplified-Administration.md)
 ##### [Simplified Administration appendix](ad-ds/deploy/Simplified-Administration-appendix.md)
-#### [Install Active Directory Domain Services (Level 100)](ad-ds/deploy/Install-active-directory-Domain-Services--Level-100-.md)
-##### [Install a New Windows Server 2012 Active Directory Forest (Level 200)](ad-ds/deploy/Install-a-New-Windows-Server-2012-active-directory-forest--Level-200-.md)
-##### [Install a Replica Windows Server 2012 Domain Controller in an Existing Domain (Level 200)](ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md)
-##### [Install a New Windows Server 2012 Active Directory Child or tree Domain (Level 200)](ad-ds/deploy/Install-a-New-Windows-Server-2012-active-directory-Child-or-tree-Domain--Level-200-.md)
-##### [Install a Windows Server 2012 Active Directory Read-Only Domain Controller (RODC) (Level 200)](ad-ds/deploy/RODC/Install-a-Windows-Server-2012-active-directory-Read-Only-Domain-Controller--RODC---Level-200-.md)
-#### [Demoting Domain Controllers and Domains (Level 200)](ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md)
+#### [Install Active Directory Domain Services](ad-ds/deploy/Install-active-directory-Domain-Services--Level-100-.md)
+##### [Install a New Windows Server Active Directory Forest](ad-ds/deploy/Install-a-New-Windows-Server-2012-active-directory-forest--Level-200-.md)
+##### [Install a Replica Windows Server 2012 Domain Controller in an Existing Domain](ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md)
+##### [Install a New Windows Server Active Directory Child or tree Domain](ad-ds/deploy/Install-a-New-Windows-Server-2012-active-directory-Child-or-tree-Domain--Level-200-.md)
+##### [Install a Windows Server 2012 Active Directory Read-Only Domain Controller (RODC)](ad-ds/deploy/RODC/Install-a-Windows-Server-2012-active-directory-Read-Only-Domain-Controller--RODC---Level-200-.md)
+#### [Demoting Domain Controllers](ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md)
+##### [AD DS metadata cleanup](ad-ds/deploy/ad-ds-metadata-cleanup.md)
 #### [AD DS Installation and removal Wizard Page Descriptions](ad-ds/deploy/AD-DS-Installation-and-removal-Wizard-Page-Descriptions.md)
 #### [Changes Made by Adprep](ad-ds/deploy/adprep/changes-Made-by-Adprep.md)
 ##### [Schema Updates](ad-ds/deploy/Schema-Updates.md)
@@ -196,36 +198,7 @@
 ### [AD DS Troubleshooting](ad-ds/manage/AD-DS-Troubleshooting.md)
 #### [Configuring a computer for Troubleshooting](ad-ds/manage/troubleshoot/Configuring-a-computer-for-Troubleshooting.md)
 #### [Troubleshooting Active Directory Replication Problems](ad-ds/manage/troubleshoot/Troubleshooting-active-directory-Replication-Problems.md)
-##### [Fixing Replication Lingering Object Problems (Event IDs 1388, 1988, 2042)](https://technet.microsoft.com/library/cc949124.aspx)
-###### [Event ID 1388 or 1988: A lingering object is detected](ad-ds/manage/troubleshoot/Event-ID-1388-or-1988--A-lingering-object-is-detected.md)
-###### [A deleted account remains in the address Book, e-mail is not received, or a duplicate account exists](https://technet.microsoft.com/library/cc949128.aspx)
-###### [Event ID 2042: It has been too long since this machine replicated](ad-ds/manage/troubleshoot/Event-ID-2042--It-has-been-too-long-since-this-machine-replicated.md)
-##### [Fixing Replication Security Problems](ad-ds/manage/troubleshoot/Fixing-Replication-Security-Problems.md)
-###### [An "Access denied" or other security error has caused replication problems](https://technet.microsoft.com/library/cc949123.aspx)
-##### [Fixing Replication DNS Lookup Problems (Event IDs 1925, 2087, 2088)](https://technet.microsoft.com/library/cc949133.aspx)
-###### [Event ID 1925: attempt to establish a replication link failed due to DNS lookup problem](ad-ds/manage/troubleshoot/Event-ID-1925--attempt-to-establish-a-replication-link-failed-due-to-DNS-lookup-problem.md)
-###### [Event ID 2087: DNS lookup failure caused replication to fail](ad-ds/manage/troubleshoot/Event-ID-2087--DNS-lookup-failure-caused-replication-to-fail.md)
-###### [Event ID 2088: DNS lookup failure occurred with replication success](ad-ds/manage/component-updates/Event-ID-2088--DNS-lookup-failure-occurred-with-replication-success.md)
-##### [Fixing Replication Connectivity Problems (Event ID 1925)](ad-ds/manage/troubleshoot/Fixing-Replication-Connectivity-Problems--Event-ID-1925-.md)
-###### [Event ID 1925: attempt to establish a replication link failed due to connectivity problem](ad-ds/manage/troubleshoot/Event-ID-1925--attempt-to-establish-a-replication-link-failed-due-to-connectivity-problem.md)
-##### [Fixing Replication Topology Problems (Event ID 1311)](ad-ds/manage/troubleshoot/Fixing-Replication-Topology-Problems--Event-ID-1311-.md)
-##### [Verify DNS Functionality to Support Directory Replication](ad-ds/manage/troubleshoot/verify-DNS-Functionality-to-Support-directory-Replication.md)
-##### [Replication error 8614 The Active Directory cannot replicate with this server because the time since the last replication with this server has exceeded the tombstone lifetime](https://technet.microsoft.com/library/replication-error-8614-the-active-directory-cannot-replicate-with-this-server-because-the-time-since-the-last-replication-with-this-server-has-exceeded-the-tombstone-lifetime.aspx)
-##### [Replication error 8524 The DSA operation is unable to proceed because of a DNS lookup failure](ad-ds/manage/troubleshoot/Replication-error-8524-The-DSA-operation-is-unable-to-proceed-because-of-a-DNS-lookup-failure.md)
-##### [Replication error 8456 or 8457 The source | destination server is currently rejecting replication requests](ad-ds/manage/troubleshoot/Replication-error-8456-or-8457-The-source---destination-server-is-currently-rejecting-replication-requests.md)
-##### [Replication error 8453 Replication access was denied](ad-ds/manage/troubleshoot/Replication-error-8453-Replication-access-was-denied.md)
-##### [Replication error 8452 The naming context is in the process of being removed or is not replicated from the specified server](ad-ds/manage/troubleshoot/Replication-error-8452-The-naming-context-is-in-the-process-of-being-removed-or-is-not-replicated-from-the-specified-server.md)
-##### [Replication error 5 Access is denied](ad-ds/manage/troubleshoot/Replication-error-5-Access-is-denied.md)
-##### [Replication error -2146893022 The target principal name is incorrect](ad-ds/manage/troubleshoot/Replication-error--2146893022-The-target-principal-name-is-incorrect.md)
-##### [Replication error 1753 There are no more endpoints available from the endpoint mapper](ad-ds/manage/Replication-error-1753-There-are-no-more-endpoints-available-from-the-endpoint-mapper.md)
-##### [Replication error 1722 The RPC server is unavailable](ad-ds/manage/troubleshoot/Replication-error-1722-The-RPC-server-is-unavailable.md)
-##### [Replication error 1396 Logon Failure The target account name is incorrect](ad-ds/plan/Replication-error-1396-Logon-Failure-The-target-account-name-is-incorrect.md)
-##### [Replication error 1256 The remote system is not available](ad-ds/manage/troubleshoot/Replication-error-1256-The-remote-system-is-not-available.md)
-##### [Replication error 1127 While accessing the hard disk, a disk operation failed even after retries](https://technet.microsoft.com/library/replication-error-1127-while-accessing-the-hard-disk-a-disk-operation-failed-even-after-retries.aspx)
-##### [Replication error 8606 Insufficient attributes were given to create an object](ad-ds/manage/troubleshoot/Replication-error-8606-Insufficient-attributes-were-given-to-create-an-object.md)
-##### [Replication error 8451 The replication operation encountered a database error](ad-ds/manage/troubleshoot/Replication-error-8451-The-replication-operation-encountered-a-database-error.md)
 ##### [Additional Resources](additional-Resources_12.md)
-
 
 ## [Active Directory Federation Services](active-directory-Federation-Services.md)
 
@@ -297,6 +270,8 @@
 #### [Set up Geographic Redundancy with SQL Server Replication](ad-fs/deployment/Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md)
 #### [Set up the lab environment for AD FS in Windows Server 2012 R2](ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 #### [Upgrading to AD FS in Windows Server 2016 using a WID database](ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server.md)
+#### [Deploy AD FS in Azure](ad-fs/deployment/how-to-connect-fed-azure-adfs.md)
+#### [AD FS in Azure with Azure Traffic Manager](ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager.md)  
 #### [Upgrading to AD FS in Windows Server 2016 using a SQL database](ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server-SQL.md)
 #### [Deploy Azure AD Connect Health to Monitor your on-premises identity infrastructure in the cloud](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health)
 
@@ -391,6 +366,9 @@
 
 
 ### [AD FS Development](ad-fs/AD-FS-Development.md)
+
+#### [Build a Custom Authentication Method for AD FS](ad-fs/development/ad-fs-build-custom-auth-method.md)
+#### [Build Plug-ins with AD FS 2019 Risk Assessment Model](ad-fs/development/ad-fs-risk-assessment-model.md)
 #### [Custom Id Tokens in AD FS](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
 #### [AD FS On-behalf-of Authentication in Windows Server 2016](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
 #### [Enabling OpenId Connect with AD FS 2016](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)
@@ -430,8 +408,10 @@
 #### [Create a Claims Provider Trust](ad-fs/operations/create-a-Claims-Provider-Trust.md) 
 #### [Create a Non-Claims Aware Relying Party Trust](ad-fs/operations/create-a-Non-Claims-Aware-Relying-Party-Trust.md)
 #### [Create a Relying Party Trust](ad-fs/operations/create-a-Relying-Party-Trust.md) 
+#### [Customize HTTP security response headers with AD FS](ad-fs/operations/customize-http-security-headers-ad-fs.md)
+#### [Delegate AD FS Powershell Commandlet Access to Non-Admin Users](ad-fs/operations/delegate-ad-fs-pshell-access.md)
 #### [Device Authentication Controls in AD FS](ad-fs/operations/device-authentication-controls-in-AD-FS.md)
-#### [User privacy and AD FS](ad-fs/operations/GDPR-and-AD-FS-Compliance.md)
+
 #### [Improved interoperability with SAML 2.0](ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)
 #### [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across company Applications](ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-company-Applications.md)
 #### [Manage Risk with additional Multi-Factor Authentication for Sensitive Applications](ad-fs/operations/Manage-Risk-with-additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
@@ -441,6 +421,7 @@
 #### [Plan Device-based Conditional Access on-Premises](ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)
 
 #### [Set up an AD FS lab environment](ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
+#### [SQL fine tuning and addressing latency](ad-fs/operations/adfs-sql-latency.md)
 #### [Walkthrough Guide: Manage Risk with additional Multi-Factor Authentication for Sensitive Applications](ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 #### [Walkthrough Guide: Manage Risk with Conditional Access Control](ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 #### [Walkthrough: Workplace Join with a Windows Device](ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
@@ -465,6 +446,7 @@
 
 
 ### [AD FS Technical Reference](ad-fs/AD-FS-Technical-Reference.md)
+#### [User privacy and AD FS](ad-fs/technical-reference/GDPR-and-AD-FS-Compliance.md)
 #### [AD FS and certificate KeySpec property information](ad-fs/technical-reference/AD-FS-and-KeySpec-Property.md)
 #### [Auditing Enhancements to AD FS in Windows Server](ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)
 #### [Understanding Key AD FS Concepts](ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)
@@ -480,6 +462,10 @@
 #### [Device registration Technical Reference](ad-fs/technical-reference/device-registration-technical-reference.md)
 #### [AD FS Password Attack Protection](ad-fs/technical-reference/ad-fs-password-protection.md)
 ### [AD FS 2016 FAQ](ad-fs/overview/AD-FS-FAQ.md)
+
+## Active Directory Rights Management Service
+### [Upgrading AD RMS to Windows Server 2016](ad-rms/adrms-deploy.md)
+
 
 ## [Securing Privileged Access](securing-privileged-access/securing-privileged-access.md)
 ### [Privileged Access Workstations](securing-privileged-access/privileged-access-workstations.md)

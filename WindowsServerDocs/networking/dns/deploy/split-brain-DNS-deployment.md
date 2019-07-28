@@ -27,7 +27,7 @@ This topic contains the following sections.
 - [Example of DNS Split-Brain Deployment](#bkmk_sbexample)
 - [Example of DNS Selective Recursion Control](#bkmk_recursion)
 
-##<a name="bkmk_sbexample"></a>Example of DNS Split-Brain Deployment
+## <a name="bkmk_sbexample"></a>Example of DNS Split-Brain Deployment
 Following is an example of how you can use DNS policy to accomplish the previously described scenario of split-brain DNS.
 
 This section contains the following topics.
@@ -51,7 +51,7 @@ The following illustration depicts this scenario.
 ![Split-Brain DNS Deployment](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-##<a name="bkmk_sbhow"></a>How DNS Split-Brain Deployment Works
+## <a name="bkmk_sbhow"></a>How DNS Split-Brain Deployment Works
 
 When the DNS server is configured with the required DNS policies, each name resolution request is evaluated against the policies on the DNS server.
 
@@ -61,7 +61,7 @@ If the server interface upon which the query is received matches any of the poli
 
 So, in our example, the DNS queries for www.career.contoso.com  that are received on the private IP (10.0.0.56) receive a DNS response that contains an internal IP address; and the DNS queries that are received on the public network interface receive a DNS response that contains the public IP address in the default zone scope (this is the same as normal query resolution).  
 
-##<a name="bkmk_sbconfigure"></a>How to Configure DNS Split-Brain Deployment
+## <a name="bkmk_sbconfigure"></a>How to Configure DNS Split-Brain Deployment
 To configure DNS Split-Brain Deployment by using DNS Policy, you must use the following steps.
 
 - [Create the Zone Scopes](#bkmk_zscopes)  
@@ -73,24 +73,24 @@ The following sections provide detailed configuration instructions.
 >[!IMPORTANT]
 >The following sections include example Windows PowerShell commands that contain example values for many parameters. Ensure that you replace example values in these commands with values that are appropriate for your deployment before you run these commands. 
 
-###<a name="bkmk_zscopes"></a>Create the Zone Scopes
+### <a name="bkmk_zscopes"></a>Create the Zone Scopes
 
 A zone scope is a unique instance of the zone. A DNS zone can have multiple zone scopes, with each zone scope containing its own set of DNS records. The same record can be present in multiple scopes, with different IP addresses or the same IP addresses. 
 
->[!NOTE]
->By default, a zone scope exists on the DNS zones. This zone scope has the same name as the zone, and legacy DNS operations work on this scope. This default zone scope will host the external version of www.career.contoso.com.
+> [!NOTE]
+> By default, a zone scope exists on the DNS zones. This zone scope has the same name as the zone, and legacy DNS operations work on this scope. This default zone scope will host the external version of www.career.contoso.com.
 
 You can use the following example command to partition the zone scope contoso.com to create an internal zone scope. The internal zone scope will be used to keep the internal version of www.career.contoso.com.
 
 `Add-DnsServerZoneScope -ZoneName "contoso.com" -Name "internal"`
 
-For more information, see [Add-DnsServerZoneScope](https://technet.microsoft.com/library/mt126267.aspx)
+For more information, see [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records"></a>Add Records to the Zone Scopes
+### <a name="bkmk_records"></a>Add Records to the Zone Scopes
 
 The next step is to add the records representing the Web server host into the two zone scopes - internal and default (for external clients). 
 
-In the internal zone scope, the record **www.career.contoso.com** is added with the IP address 10.0.0.39, which is a private IP; and in the default zone scope the same record, **www.career.contoso.com**, is added with the IP address 65.55.39.10.
+In the internal zone scope, the record <strong>www.career.contoso.com</strong> is added with the IP address 10.0.0.39, which is a private IP; and in the default zone scope the same record, <strong>www.career.contoso.com</strong>, is added with the IP address 65.55.39.10.
 
 No **–ZoneScope** parameter is provided in the following example commands when the record is being added to the default zone scope. This is similar to adding records to a vanilla zone.
 
@@ -101,9 +101,9 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4Address "10.0.0.39” -ZoneScope "internal"
 `
 
-For more information, see [Add-DnsServerResourceRecord](https://technet.microsoft.com/library/jj649925.aspx).
+For more information, see [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies"></a>Create the DNS Policies
+### <a name="bkmk_policies"></a>Create the DNS Policies
 
 After you have identified the server interfaces for the external network and internal network and you have created the zone scopes, you must create DNS policies that connect the internal and external zone scopes.
 
@@ -119,7 +119,7 @@ In the following example command, 10.0.0.56 is the IP address on the private net
 
 `Add-DnsServerQueryResolutionPolicy -Name "SplitBrainZonePolicy" -Action ALLOW -ServerInterface "eq,10.0.0.56" -ZoneScope "internal,1" -ZoneName contoso.com`
 
-For more information, see [Add-DnsServerQueryResolutionPolicy](https://technet.microsoft.com/library/mt126273.aspx).  
+For more information, see [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
 
 
 ## <a name="bkmk_recursion"></a>Example of DNS Selective Recursion Control
@@ -182,7 +182,7 @@ In this example, the default recursion setting is disabled, while a new recursio
     Add-DnsServerRecursionScope -Name "InternalClients" -EnableRecursion $True 
     
 
-For more information, see [Add-DnsServerRecursionScope](https://technet.microsoft.com/library/mt126268.aspx)
+For more information, see [Add-DnsServerRecursionScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverrecursionscope?view=win10-ps)
 
 #### <a name="bkmk_recpolicy"></a>Create DNS Recursion Policies
 
@@ -190,15 +190,15 @@ You can create DNS server recursion policies to choose a recursion scope for a s
 
 If the DNS server is not authoritative for some queries, DNS server recursion policies allow you to control how to resolve the queries. 
 
-In this example, the internal recursion scope with recursion enabled is associated with the private network interface
+In this example, the internal recursion scope with recursion enabled is associated with the private network interface.
 
 You can use the following example command to configure DNS recursion policies.
 
     
-    Add-DnsServerQueryResolutionPolicy -Name "SplitBrainRecursionPolicy" -Action ALLOW -ApplyOnRecursion -RecursionScope "InternalClients" -ServerInterfaceIP  "EQ,10.0.0.39"
+    Add-DnsServerQueryResolutionPolicy -Name "SplitBrainRecursionPolicy" -Action ALLOW -ApplyOnRecursion -RecursionScope "InternalClients" -ServerInterfaceIP "EQ,10.0.0.39"
     
 
-For more information, see [Add-DnsServerQueryResolutionPolicy](https://technet.microsoft.com/library/mt126273.aspx).
+For more information, see [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 Now the DNS server is configured with the required DNS policies for either a split-brain name server or a DNS server with selective recursion control enabled for internal clients.
 

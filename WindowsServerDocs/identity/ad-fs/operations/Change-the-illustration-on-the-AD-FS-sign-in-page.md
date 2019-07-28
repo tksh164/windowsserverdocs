@@ -13,12 +13,10 @@ ms.technology: identity-adfs
 ---
 # Change the illustration on the AD FS sign-in page
 
->Applies To: Windows Server 2016, Windows Server 2012 R2
-
 ## Change the Illustration  
 
 
-To change the illustration, the graphic on the left, which is displayed on the sign\-in page, use the following Windows PowerShell PowerShell cmdlet and syntax.  
+To change the illustration, the graphic on the left, which is displayed on the sign\-in page, use the following Windows PowerShell cmdlet and syntax.  
 
 ![change illustration](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

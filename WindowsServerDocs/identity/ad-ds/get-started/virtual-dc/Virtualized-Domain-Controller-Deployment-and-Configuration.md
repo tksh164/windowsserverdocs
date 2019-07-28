@@ -149,7 +149,7 @@ Before you attempt to clone a DC, you must validate that the domain controller h
     >   
     > Because this RPC method is new, your network analysis software requires updated parsers to include fields for the new Opnum 28 in the existing UUID E3514235-4B06-11D1-AB04-00C04FC2DCD2. Otherwise, you cannot parse this traffic.  
     >   
-    > For more information, see [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/en-us/library/hh554213(v=prot.13).aspx).  
+    > For more information, see [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/library/hh554213(v=prot.13).aspx).  
   
 ***This also means when using non-fully routed networks, virtualized domain controller cloning requires network segments with access to the PDCE***. It is acceptable to move a cloned domain controller to a different network after cloning - just like a physical domain controller - as long as you are careful to update the AD DS logical site information.  
   
@@ -241,7 +241,7 @@ Any programs or services previously returned by Get-ADDCCloningExcludedApplicati
 > [!WARNING]  
 > Any incompatible program or service not uninstalled or added to the CustomDCCloneAllowList.xml prevents cloning.  
   
-Use the Get-AdComputerServiceAccount cmdlet to locate any standalone Managed Service Accounts (MSAs) in the domain and if this computer is using any of them. If any MSA is installed, use the Uninstall-ADServiceAccount cmdlet to remove the locally installed service account. Once you are done with taking the source domain controller offline in step 6, you can re-add the MSA using Install-ADServiceAccount when the server is back online. For more information, see [Uninstall-ADServiceAccount](https://technet.microsoft.com/en-us/library/hh852310).  
+Use the Get-AdComputerServiceAccount cmdlet to locate any standalone Managed Service Accounts (MSAs) in the domain and if this computer is using any of them. If any MSA is installed, use the Uninstall-ADServiceAccount cmdlet to remove the locally installed service account. Once you are done with taking the source domain controller offline in step 6, you can re-add the MSA using Install-ADServiceAccount when the server is back online. For more information, see [Uninstall-ADServiceAccount](https://technet.microsoft.com/library/hh852310).  
   
 > [!IMPORTANT]  
 > Standalone MSAs - first released in Windows Server 2008 R2 - were replaced in Windows Server 2012 with group MSAs. Group MSAs support cloning.  
@@ -276,7 +276,7 @@ You run the cmdlet on the proposed source domain controller that you intend to c
 ||-PreferredWINSServer|Specifies the static IPv4 address of the primary WINS server. String data type.|  
 ||-AlternateWINSServer|Specifies the static IPv4 address of the secondary WINS server. String data type.|  
 ||-IPv6DNSResolver|Specifies the static IPv6 DNS entries of the cloned computer in a comma-separated list. There is no way to set Ipv6 static information in virtualized domain controller cloning. Array data type.|  
-||-Offline|Does not perform the validation tests and overwrites any existing dccloneconfig.xml. Has no parameters. For more information, see [Running New-ADDCCloneConfigFile in offline mode](../../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#BKMK_OfflineMode).|  
+||-Offline|Does not perform the validation tests and overwrites any existing dccloneconfig.xml. Has no parameters.|  
 ||*-Static*|Required if specifying static IP arguments IPv4SubnetMask, IPv4SubnetMask, or IPv4DefaultGateway. Has no parameters.|  
   
 Tests performed when run in online mode:  
@@ -392,7 +392,7 @@ Get-VMIdeController dc2-sourceclone | Get-VMHardDiskDrive | select-Object {copy-
 > You cannot use passthru disks with cloning, as they do not use a virtual disk file but instead an actual hard disk.  
   
 > [!NOTE]  
-> For more information about more Windows PowerShell operations with pipelines, see [Piping and the Pipeline in Windows PowerShell](https://technet.microsoft.com/en-us/library/ee176927.aspx).  
+> For more information about more Windows PowerShell operations with pipelines, see [Piping and the Pipeline in Windows PowerShell](https://technet.microsoft.com/library/ee176927.aspx).  
   
 #### Exporting the VM  
 As an alternative to copying the disks, you can export the entire Hyper-V VM as a copy. Exporting automatically creates a folder named for the VM and containing all disks and configuration information.  
@@ -640,11 +640,11 @@ For example:
   
 ![Virtualized DC Deployment](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
-> [!WARNING]  
+> [!WARNING]
 > Ensure that, when importing the computer, static MAC addresses were not assigned to the source domain controller. If a source computer with a static MAC is cloned, those copied computers will not correctly send or receive any network traffic. Set a new unique static or dynamic MAC address if this is the case. You can see if a VM uses static MAC addresses with the command:  
->   
+> 
 > **Get-VM -VMName**   
->  ***test-vm* | Get-VMNetworkAdapter | fl \***  
+>  ***test-vm* | Get-VMNetworkAdapter | fl \\***  
   
 ### Step 9 - Clone the New Virtual Machine  
 Optionally, before you begin cloning, restart the offline clone source domain controller. Ensure that the PDC emulator is online, regardless.  

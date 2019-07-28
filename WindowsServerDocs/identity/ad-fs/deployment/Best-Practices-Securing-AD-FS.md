@@ -14,7 +14,6 @@ ms.technology: identity-adfs
 
 ## Best practices for securing Active Directory Federation Services
 
->Applies To: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 This document provides best practices for the secure planning and deployment of Active Directory Federation Services (AD FS) and Web Application Proxy.  It contains information about the default behaviors of these components and recommendations for additional security configurations for an organization with specific use cases and security requirements.
 
@@ -31,6 +30,9 @@ The below diagram depicts the firewall ports that must be enabled between and am
 >Note that port 49443 is only required if user certificate authentication is used, which is optional for Azure AD and Office 365.
 
 ![AD FS Standard topology](media/Best-Practices-Securing-AD-FS/adfssec2.png)
+
+>[!NOTE]
+> Port 808 (Windows Server 2012R2) or port 1501 (Windows Server 2016+) is the Net.TCP port AD FS uses for the local WCF endpoint to transfer configuration data to the service process and Powershell. This port can be seen by running Get-AdfsProperties | select NetTcpPort. This is a local port that will not need to be opened in the firewall but will be displayed in a port scan. 
 
 ### Azure AD Connect and Federation Servers/WAP
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.  
@@ -56,7 +58,7 @@ Protocol |Ports |Description
 HTTPS|443(TCP/UDP)|Used for device authentication.
 TCP|49443 (TCP)|Used for certificate authentication.
 
-For additional information on required ports and protocols required for hybrid deployments see the document [here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-ports/).
+For additional information on required ports and protocols required for hybrid deployments see the document [here](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
 
 For detailed information about ports and protocols required for an Azure AD and Office 365 deployment, see the document [here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
@@ -106,7 +108,7 @@ The federation service proxy (part of the WAP) provides congestion control to pr
 3.	Change the congestion control settings from its default values to ‘<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />’.
 4.	Save and close the file.
 5.	Restart the AD FS service by running ‘net stop adfssrv’ and then ‘net start adfssrv’.
-For your reference, guidance on this capability can be found [here](https://msdn.microsoft.com/en-us/library/azure/dn528859.aspx ).
+For your reference, guidance on this capability can be found [here](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
 
 ### Standard HTTP request checks at the proxy
 The proxy also performs the following standard checks against all traffic:
@@ -121,7 +123,7 @@ The most important security recommendation for your AD FS infrastructure is to e
 
 The recommended way for Azure AD customers to monitor and keep current their infrastructure is via Azure AD Connect Health for AD FS, a feature of Azure AD Premium.  Azure AD Connect Health includes monitors and alerts that trigger if an AD FS or WAP machine is missing one of the important updates specifically for AD FS and WAP.
 
-Information on installing Azure AD Connect Health for AD FS can be found [here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-health-agent-install/).
+Information on installing Azure AD Connect Health for AD FS can be found [here](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/).
 
 ## Additional security configurations
 The following additional capabilities can be configured optionally to provide additional protections to those offered in the default deployment.
@@ -133,15 +135,22 @@ You can use the following Windows PowerShell command to set the AD FS extranet l
 
     PS:\>Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold 15 -ExtranetObservationWindow ( new-timespan -Minutes 30 )
 
-For reference, the public documentation of this feature is [here](https://technet.microsoft.com/en-us/library/dn486806.aspx ). 
+For reference, the public documentation of this feature is [here](https://technet.microsoft.com/library/dn486806.aspx ). 
 
+### Disable WS-Trust Windows endpoints on the proxy i.e. from extranet
+
+WS-Trust Windows endpoints (*/adfs/services/trust/2005/windowstransport* and */adfs/services/trust/13/windowstransport*) are meant only to be intranet facing endpoints that use WIA binding on HTTPS. Exposing them to extranet could allow requests against these endpoints to bypass lockout protections. These endpoints should be disabled on the proxy (i.e. disabled from extranet) to protect AD account lockout by using following PowerShell commands. There is no known end user impact by disabling these endpoints on the proxy.
+
+    PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/2005/windowstransport -Proxy $false
+    PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/windowstransport -Proxy $false
+    
 ### Differentiate access policies for intranet and extranet access
 AD FS has the ability to differentiate access policies for requests that originate in the local, corporate network vs requests that come in from the internet via the proxy.  This can be done per application or globally.  For high business value applications or applications with sensitive or personally identifiable information, consider requiring multi factor authentication.  This can be done via the AD FS management snap-in.  
 
 ### Require Multi factor authentication (MFA)
 AD FS can be configured to require strong authentication (such as multi factor authentication) specifically for requests coming in via the proxy, for individual applications, and for conditional access to both Azure AD / Office 365 and on premises resources.  Supported methods of MFA include both Microsoft Azure MFA and third party providers.  The user is prompted to provide the additional information (such as an SMS text containing a one time code), and AD FS works with the provider specific plug-in to allow access.  
 
-Supported external MFA providers include those listed in [this](https://technet.microsoft.com/en-us/library/dn758113.aspx) page, as well as HDI Global.
+Supported external MFA providers include those listed in [this](https://technet.microsoft.com/library/dn758113.aspx) page, as well as HDI Global.
 
 ### Hardware Security Module (HSM)
 In its default configuration, the keys AD FS uses to sign tokens never leave the federation servers on the intranet.  They are never present in the DMZ or on the proxy machines.  Optionally to provide additional protection, these keys can be protected in a hardware security module attached to AD FS.  Microsoft does not produce an HSM product, however there are several on the market that support AD FS.  In order to implement this recommendation, follow the vendor guidance to create the X509 certs for signing and encryption, then use the AD FS installation powershell commandlets, specifying your custom certificates as follows:

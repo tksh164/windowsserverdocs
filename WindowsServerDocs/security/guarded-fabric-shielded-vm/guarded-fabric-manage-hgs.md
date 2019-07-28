@@ -217,7 +217,7 @@ The backed up HGS server state will not include the name of your HGS cluster, an
 These settings are important for consistency but not critical to get your HGS cluster back online after a disaster.
 
 To capture the name of the HGS service, run `Get-HgsServer` and note the flat name in the Attestation and Key Protection URLs.
-For example, if the Attestation URL is "http://hgs.contoso.com/Attestation", "hgs" is the HGS service name.
+For example, if the Attestation URL is "<http://hgs.contoso.com/Attestation>", "hgs" is the HGS service name.
 
 The Active Directory domain used by HGS should be managed like any other Active Directory domain.
 When restoring HGS after a disaster, you will not necessarily need to recreate the exact objects that are present in the current domain.
@@ -256,7 +256,7 @@ You will be prompted to enter the password you specified when creating the backu
 Import-HgsServerState -Path C:\Temp\HGSBackup.xml
 ```
 
-If you only want to import admin-trusted attestation policies or TPM-trusted attestation policies, you can do so by specifying the `-ImportActiveDirectoryModeState` or `-ImportTpmModeState` flags to [Import-HgsServerState](https://technet.microsoft.com/en-us/library/mt652168.aspx).
+If you only want to import admin-trusted attestation policies or TPM-trusted attestation policies, you can do so by specifying the `-ImportActiveDirectoryModeState` or `-ImportTpmModeState` flags to [Import-HgsServerState](https://technet.microsoft.com/library/mt652168.aspx).
 
 Ensure the latest cumulative update for Windows Server 2016 is installed before running `Import-HgsServerState`.
 Failure to do so may result in an import error.
@@ -437,7 +437,7 @@ On a reference host, which serves as a master image for the trusted Hyper-V mach
 We encourage you to use the **FilePublisher** level and **Hash** fallback for Hyper-V host CI policies.
 You should first create a CI policy in audit mode to ensure that everything is working as expected.
 After validating a sample workload on the system, you can enforce the policy and copy the enforced version to HGS.
-For a complete list of code integrity policy configuration options, consult the [Device Guard documentation](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/deploy-device-guard-deploy-code-integrity-policies).
+For a complete list of code integrity policy configuration options, consult the [Device Guard documentation](https://technet.microsoft.com/itpro/windows/keep-secure/deploy-device-guard-deploy-code-integrity-policies).
 
 ```powershell
 # Capture a new CI policy with the FilePublisher primary level and Hash fallback and enable user mode code integrity protections
@@ -486,7 +486,7 @@ Add-HgsAttestationDumpPolicy -Name 'DumpEncryptionKey02' -PublicKeyHash '<paste 
 Be sure to add each unique dump encryption key to HGS if you choose to use different keys across your guarded fabric.
 Hosts that are encrypting memory dumps with a key not known to HGS will not pass attestation.
 
-Consult the Hyper-V documentation for more information about [configuring dump encryption on hosts](https://technet.microsoft.com/en-us/windows-server-docs/virtualization/hyper-v/manage/about-dump-encryption).
+Consult the Hyper-V documentation for more information about [configuring dump encryption on hosts](https://technet.microsoft.com/windows-server-docs/virtualization/hyper-v/manage/about-dump-encryption).
 
 #### Check if the system passed attestation
 After registering the necessary information with HGS, you should check if the host passes attestation.
@@ -503,6 +503,10 @@ On the host that failed attestation, run the following command to get a detailed
 ```powershell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
+
+> [!IMPORTANT]
+> If you're using Windows Server 2019 or Windows 10, version 1809 and are using code integrity policies, `Get-HgsTrace` may return a failure for the **Code Integrity Policy Active** diagnostic.
+> You can safely ignore this result when it is the only failing diagnostic.
 
 ### Review attestation policies
 To review the current state of the policies configured on HGS, run the following commands on any HGS node:
@@ -676,7 +680,7 @@ See the section on [adding new keys](#adding-new-keys) for detailed information 
 
     ```powershell
     Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsPrimary
-    Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsPrimary
+    Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsPrimary
     ```
 
 At this point, shielding data created with metadata obtained from the HGS node will use the new certificates, but existing VMs will continue to work because the older certificates are still there.
@@ -699,10 +703,10 @@ For each shielded VM, perform the following steps:
 10. Copy the updated KP back to the hosting fabric
 11. Apply the KP to the original VM:
 
-    ```powershell
-    $updatedKP = Get-Content -Path .\updatedVM001.kp
-    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
-    ```
+   ```powershell
+   $updatedKP = Get-Content -Path .\updatedVM001.kp
+   Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
+   ```
 12.	Finally, start the VM and ensure it runs successfully.
 
 > [!NOTE]
@@ -710,9 +714,22 @@ For each shielded VM, perform the following steps:
 > To return to the last known good key protector, run `Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector`
 
 Once all VMs have been updated to authorize the new guardian keys, you can disable and remove the old keys.
+
 13. Get the thumbprints of the old certificates from `Get-HgsKeyProtectionCertificate -IsPrimary $false`
-14. Disable each certificate by replacing the certificate type and thumbprint in the following command: `Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false`
-15. After ensuring VMs are still able to start with the certificates disabled, remove the certificates from HGS with `Remove-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint>`
+
+14. Disable each certificate by running the following commands:  
+
+   ```powershell
+   Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
+   Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
+   ```
+
+15. After ensuring VMs are still able to start with the certificates disabled, remove the certificates from HGS by running the following commands:
+
+   ```powershell
+   Remove-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint>`
+   Remove-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint>`
+   ```
 
 > [!IMPORTANT]
 > VM backups will contain old key protector information that allow the old certificates to be used to start up the VM.
@@ -735,15 +752,15 @@ These tasks add extra operational burden, however they are required for HSM-back
 
 **SSL Certificates** are never replicated in any form.
 It is your responsibility to initialize each HGS server with the same SSL certificate and update each server whenever you choose to renew or replace the SSL certificate.
-When replacing the SSL certificate, it is recommended that you do so using the [Set-HgsServer](https://technet.microsoft.com/en-us/library/mt652180.aspx) cmdlet.
+When replacing the SSL certificate, it is recommended that you do so using the [Set-HgsServer](https://technet.microsoft.com/library/mt652180.aspx) cmdlet.
 
 ## Unconfiguring HGS
 
-If you need to decommission or significantly reconfigure an HGS server, you can do so using the [Clear-HgsServer](https://technet.microsoft.com/en-us/library/mt652176.aspx) or [Uninstall-HgsServer](https://technet.microsoft.com/en-us/library/mt652182.aspx) cmdlets.
+If you need to decommission or significantly reconfigure an HGS server, you can do so using the [Clear-HgsServer](https://technet.microsoft.com/library/mt652176.aspx) or [Uninstall-HgsServer](https://technet.microsoft.com/library/mt652182.aspx) cmdlets.
 
 ### Clearing the HGS configuration
 
-To remove a node from the HGS cluster, use the [Clear-HgsServer](https://technet.microsoft.com/en-us/library/mt652176.aspx) cmdlet.
+To remove a node from the HGS cluster, use the [Clear-HgsServer](https://technet.microsoft.com/library/mt652176.aspx) cmdlet.
 This cmdlet will make the following changes on the server where it is run:
 
 - Unregisters the attestation and key protection services
@@ -757,12 +774,12 @@ If the server is the last HGS node in the cluster, the cluster and its correspon
 Clear-HgsServer
 ```
 
-After the clear operation completes, the HGS server can be re-initialized with [Initialize-HgsServer](https://technet.microsoft.com/en-us/library/mt652185.aspx).
-If you used [Install-HgsServer](https://technet.microsoft.com/en-us/library/mt652169.aspx) to set up an Active Directory Domain Services domain, that domain will remain configured and operational after the clear operation.
+After the clear operation completes, the HGS server can be re-initialized with [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx).
+If you used [Install-HgsServer](https://technet.microsoft.com/library/mt652169.aspx) to set up an Active Directory Domain Services domain, that domain will remain configured and operational after the clear operation.
 
 ### Uninstalling HGS
 
-If you wish to remove a node from the HGS cluster **and** demote the Active Directory Domain Controller running on it, use the [Uninstall-HgsServer](https://technet.microsoft.com/en-us/library/mt652182.aspx) cmdlet.
+If you wish to remove a node from the HGS cluster **and** demote the Active Directory Domain Controller running on it, use the [Uninstall-HgsServer](https://technet.microsoft.com/library/mt652182.aspx) cmdlet.
 This cmdlet will make the following changes on the server where it is run:
 
 - Unregisters the attestation and key protection services
@@ -778,7 +795,7 @@ $newLocalAdminPassword = Read-Host -AsSecureString -Prompt "Enter a new password
 Uninstall-HgsServer -LocalAdministratorPassword $newLocalAdminPassword -Restart
 ```
 
-After the uninstall operation is complete and the computer has been restarted, you can reinstall ADDC and HGS using [Install-HgsServer](https://technet.microsoft.com/en-us/library/mt652169.aspx) or join the computer to a domain and initialize the HGS server in that domain with [Initialize-HgsServer](https://technet.microsoft.com/en-us/library/mt652185.aspx).
+After the uninstall operation is complete and the computer has been restarted, you can reinstall ADDC and HGS using [Install-HgsServer](https://technet.microsoft.com/library/mt652169.aspx) or join the computer to a domain and initialize the HGS server in that domain with [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx).
 
 If you no longer intend to use the computer as a HGS node, you can remove the role from Windows.
 

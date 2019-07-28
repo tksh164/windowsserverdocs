@@ -10,7 +10,7 @@ ms.date: 07/27/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
-ms.localizationpriority: high
+ms.localizationpriority: medium
 ---
 # Security and Assurance in Windows Server 
 
@@ -102,10 +102,10 @@ Supported registry setting information for the Windows implementation of the Tra
 ### [Control Flow Guard](https://docs.microsoft.com/windows/desktop/SecBP/control-flow-guard)
 Control Flow Guard provides built-in protection against some classes of memory corruption attacks.
 
-### [Windows Defender](https://technet.microsoft.com/en-us/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
+### [Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
 Windows Defender provides active detection capabilities to block known malware. Windows Defender is turned on by default and is optimized to support the various server roles in Windows Server.
 
-##Detecting and Responding to Threats
+## Detecting and Responding to Threats
 ### [Security Threat Analysis Using Microsoft Operations Management Suite](https://channel9.msdn.com/events/ignite/2015/brk3464)
 This Ignite presentation discusses how you can use Operational Insights to perform security threat analysis.
 
@@ -126,7 +126,7 @@ This 3-minute video presents an overview of how Microsoft is adding threat analy
 ### [Datacenter Firewall Overview](https://technet.microsoft.com/library/dn920240.aspx)
 This overview discusses Datacenter Firewall, a network layer, 5-tuple (protocol, source and destination port numbers, source and destination IP addresses), stateful, multitenant firewall.
 
-### [What's New in DNS in Windows Server](https://technet.microsoft.com/en-us/windows-server-docs/networking/dns/what-s-new-in-dns-server)
+### [What's New in DNS in Windows Server](https://technet.microsoft.com/windows-server-docs/networking/dns/what-s-new-in-dns-server)
 This overview topic provides brief descriptions of new capabilities in DNS, along with links for more information.                                                                           
 
 ## Mapping security features to compliance regulations

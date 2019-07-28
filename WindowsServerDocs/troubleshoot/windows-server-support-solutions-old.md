@@ -22,15 +22,15 @@ These are the top Microsoft Support solutions for the most common issues experie
 
 ## Solutions for installing or upgrading Windows Server
 
-- [Resolve Windows 10 upgrade errors : Technical information for IT Pros](\windows\deployment\upgrade\resolve-windows-10-upgrade-errors)
+- [Resolve Windows 10 upgrade errors : Technical information for IT Pros](https://docs.microsoft.com/windows/deployment/upgrade/resolve-windows-10-upgrade-errors)
 - [Servicing stack update for Windows 10 Version 1607 and Windows Server 2016: August 8, 2017](https://support.microsoft.com/en-US/help/4035631)
 - [Compatibility update for upgrading to Windows 10 Version 1607 and Windows Server 2016: August 3, 2017](https://support.microsoft.com/en-US/help/4033524)
 - [An in-place system upgrade is not supported on Windows-based Azure VMs](https://support.microsoft.com/en-US/help/4014997)
-- [Upgrade and conversion options for Windows Server 2016](..\get-started\supported-upgrade-paths.md)
-- [Server role upgrade and migration matrix for Windows Server 2016](..\get-started\server-role-upgradeability-table.md)
-- [Windows Server Installation and Upgrade](..\get-started\installation-and-upgrade.md)
-- [Release Notes: Important Issues in Windows Server 2016](..\get-started\windows-server-2016-ga-release-notes.md)
-- [Recommendations for moving to Windows Server 2016](..\get-started\recommendations-moving-to-server2016.md)
+- [Upgrade and conversion options for Windows Server 2016](../get-started/supported-upgrade-paths.md)
+- [Server role upgrade and migration matrix for Windows Server 2016](../get-started/server-role-upgradeability-table.md)
+- [Windows Server Installation and Upgrade](../get-started/installation-and-upgrade.md)
+- [Release Notes: Important Issues in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
+- [Recommendations for moving to Windows Server 2016](../get-started/recommendations-moving-to-server2016.md)
 
 ## Solutions for Volume Activation
 - [Windows Server 2016 Activation](../get-started/server-2016-activation.md)
@@ -70,4 +70,4 @@ These are the top Microsoft Support solutions for the most common issues experie
 - [Event ID 2108 and Event ID 1084 occur during inbound replication of Active Directory in Windows 2000 Server and in Windows Server 2003](https://support.microsoft.com/kb/837932)
 - [Troubleshooting AD Replication error 8451: The replication operation encountered a database error](https://support.microsoft.com/kb/2645996)
 - [Troubleshooting AD Replication error 1127: While accessing the hard disk, a disk operation failed even after retries](https://support.microsoft.com/kb/2025726)
-- [Clean Up Server Metadata](https://technet.microsoft.com/en-us/library/cc816907.aspx)
+- [Clean Up Server Metadata](https://technet.microsoft.com/library/cc816907.aspx)

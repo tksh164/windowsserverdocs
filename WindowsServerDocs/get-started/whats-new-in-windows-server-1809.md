@@ -1,20 +1,20 @@
 ---
 title: What's New in Windows Server, version 1809
-description: "new features in Windows Server, version 1809"
+description: "New features in Windows Server, version 1809"
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: dawnwood
-ms.author: dawn.wood
+author: jasongerend
+ms.author: jgerend
+ms.date: 05/21/2019
 ms.localizationpriority: high
-ms.date: 10/02/2018
 ---
 
 # What's New in Windows Server version 1809
 
 >Applies To: Windows Server (Semi-Annual Channel)
 
-This topic describes some of the new features in Windows Server 2019.
+To learn about the latest features in Windows, see [What's New in Windows Server](whats-new-in-windows-server.md). This topic describes some of the new features in Windows Server, version 1809.
 
 ## Container networking with Kubernetes
 
@@ -34,14 +34,17 @@ Applications running in containers that need to talk over SPI, I2C, GPIO, and UA
 ## Additional features
 In addition to features that are new in Windows Server version 1809, the following new features and capabilities for [Windows Server 2019](../get-started-19/get-started-19.md) also apply to Windows Server version 1809:
 
-* [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview)
-* [Server Core App Compatibility feature on demand (FOD) ](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
-* System Insights 
-* Shielded Virtual Machines 
-* Storage Migration Service (SMS) 
-* Storage Replica
-* Azure Network Adapter 
+* Container improvements
 * HTTP/2
+* Kubernetes support
+* Linux containers on Windows
 * [Low Extra Delay Background Transport (LEDBAT)](https://blogs.technet.microsoft.com/networking/2018/07/25/ledbat/)
+* Network performance improvements for virtual workloads
+* [Server Core App Compatibility feature on demand (FOD)](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
+* [Storage Migration Service (SMS)](../storage/whats-new-in-storage.md#storage-spaces-direct)
+* Storage Replica
+* System Insights 
+* Windows Defender Advanced Threat Protection (ATP)
+* Windows Defender ATP Exploit Guard
 * [Windows Time Service](https://docs.microsoft.com/windows-server/networking/windows-time-service/insider-preview)
 

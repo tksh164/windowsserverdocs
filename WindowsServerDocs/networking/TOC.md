@@ -106,7 +106,7 @@
 #### [Physical switch configuration](technologies/conv-nic/cnic-app-switch-config.md)
 #### [Troubleshooting Converged NIC](technologies/conv-nic/cnic-app-troubleshoot.md)
 
-### [Data Center Bridging (DCB)](technologies/dcb/dcb-top.md)
+### [Data Center Bridging \(DCB\)](technologies/dcb/dcb-top.md)
 #### [Install DCB](technologies/dcb/dcb-install.md)
 #### [Manage DCB](technologies/dcb/dcb-manage.md)
 
@@ -118,6 +118,12 @@
 #### [Windows PowerShell commands for RSS and vRSS](technologies/vrss/vrss-wps.md)
 #### [Resolve vRSS issues](technologies/vrss/vrss-resolve-issues.md)
 
+## [Host Compute Network (HCN) Service API](technologies/hcn/hcn-top.md)   
+### [Common HCN scenarios](technologies/hcn/hcn-scenarios.md)
+### [RPC context handles for HCN](technologies/hcn/hcn-declaration-handles.md)
+### [HCN JSON document schemas](technologies/hcn/hcn-json-document-schemas.md)
+### [Example of C# generated code](technologies/hcn/example-c-sharp.md)
+### [Example of Go generated code](technologies/hcn/example-go.md)
 
 ## [Hyper-V Virtual Switch](technologies/vswitch-stub.md)
 
@@ -240,7 +246,7 @@
 #### [Switch Embedded Teaming (SET) for SDN](sdn/technologies/Set-for-Sdn.md)
 #### [Container networking](sdn/technologies/Containers/Container-networking-overview.md)
 
-### [Plan an SDN Infrastructure](sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)
+### [Plan for SDN](sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)
 #### [Installation and preparation requirements for deploying Network Controller](sdn/plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)
 
 ### [Deploy SDN](sdn/deploy/Deploy-Software-Defined-Networking.md)
@@ -257,6 +263,7 @@
 ##### [Add a virtual gateway to a tenant virtual network](sdn/manage/add-a-Virtual-Gateway-to-a-Tenant-Virtual-Network.md)
 ##### [Connect container endpoints to a tenant virtual network](sdn/manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md)
 ##### [Configure encryption for a virtual subnet](sdn/vnet-encryption/sdn-config-vnet-encryption.md)
+##### [Egress metering in a virtual network](sdn/manage/sdn-egress.md)
 
 #### [Manage tenant workloads](sdn/manage/Manage-Tenant-Workloads.md)
 ##### [Create a VM and connect to a tenant virtual network or VLAN](sdn/manage/create-a-Tenant-VM.md)
@@ -276,7 +283,6 @@
 ### [Virtual network peering](sdn/vnet-peering/sdn-vnet-peering.md)
 #### [Configure virtual network peering](sdn/vnet-peering/sdn-configure-vnet-peering.md)
 
-### [Egress metering in virtual network](sdn/sdn-egress.md)
 ### [Windows Server 2019 gateway performance](sdn/gateway-performance.md)
 ### [Gateway bandwidth allocation](sdn/gateway-allocation.md)
 
@@ -294,7 +300,7 @@
 ## [Windows Time service](windows-time-service/windows-time-service-top.md)
 ### [Insider preview - Windows Time service in Windows Server 2019](windows-time-service/insider-preview.md)
 ### [Accurate time for Windows Server 2016](windows-time-service/accurate-time.md)
-### [Support boundary to configure the Windows Time service for high-accuracy environments](windows-time-service/support-boundary.md)
+### [Support boundary for high-accuracy time](windows-time-service/support-boundary.md)
 ### [Configuring systems for high accuracy](windows-time-service/configuring-systems-for-high-accuracy.md)
 ### [Windows Time for traceability](windows-time-service/windows-time-for-traceability.md)
 ### [Windows Time service technical reference](windows-time-service/windows-time-service-tech-ref.md)

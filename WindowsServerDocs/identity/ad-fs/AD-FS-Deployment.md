@@ -11,9 +11,8 @@ ms.prod: windows-server-threshold
 
 ms.technology: identity-adfs
 ---
-# AD FS 2016 Deployment
+# AD FS Deployment
 
->Applies To: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 This document contains a list of all of the documentation for deploying AD FS for Windows Server 2016. This includes the following:
   
@@ -33,6 +32,10 @@ This document contains a list of all of the documentation for deploying AD FS fo
 * [Upgrading to AD FS in Windows Server 2016 using a WID database](deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
 
 * [Upgrading to AD FS in Windows Server 2016 using a SQL database](deployment/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL.md)  
+
+* [Deploy AD FS in Azure](deployment/how-to-connect-fed-azure-adfs.md)
+
+* [AD FS in Azure with Azure Traffic Manager](deployment/active-directory-adfs-in-azure-with-azure-traffic-manager.md)  
 
 * [Windows Server 2016 and 2012 R2 Deployment Guide](deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)
 

@@ -23,7 +23,7 @@ In another example, if the User-Name RADIUS attribute contains the user name use
 
 - **Example\user1**. In this example, the realm name **Example** is a prefix; and it is also the name of an Active Directory&reg; Domain Services \(AD DS\) domain.
 
-- **user1@example.com**. In this example, the realm name **example.com** is a suffix; and it is either a DNS domain name or the name of an AD DS domain.
+- <strong>user1@example.com</strong>. In this example, the realm name **example.com** is a suffix; and it is either a DNS domain name or the name of an AD DS domain.
 
 You can use realm names configured in connection request policies while designing and deploying your RADIUS infrastructure to ensure that connection requests are routed from RADIUS clients, also called network access servers, to RADIUS servers that can authenticate and authorize the connection request.
 
@@ -65,7 +65,7 @@ After the User-Name attribute is modified according to the attribute manipulatio
 
 - The NPS forwards the message to another RADIUS server (when NPS is being used as a RADIUS proxy).
 
-## Configuring the the NPS-supplied domain name
+## Configuring the NPS-supplied domain name
 
 When the user name does not contain a domain name, NPS supplies one. By default, the NPS-supplied domain name is the domain of which the NPS is a member. You can specify the NPS-supplied domain name through the following registry setting:
 

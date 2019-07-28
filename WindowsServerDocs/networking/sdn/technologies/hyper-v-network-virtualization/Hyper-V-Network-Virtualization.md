@@ -6,8 +6,7 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology: 
-  - networking-sdn
+ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 150976f0-ccd5-487a-a458-92261444a846
@@ -28,4 +27,4 @@ For more information, see the following topics:
   
 |||  
 |-|-|  
-|![Cloud](../../../media/Hyper-V-Network-Virtualization/All_Symbols_Cloud.png)|Did you know that Microsoft Azure provides similar functionality in the cloud? Learn more about [Microsoft Azure virtualization solutions](http://aka.ms/f9bh7g).<br /><br />Create a hybrid virtualization solution in Microsoft Azure:<br />- [Connect an On-premises Network to Azure via Site to Site VPN and Extend Active Directory onto an IaaS VM DC in Azure](http://aka.ms/d1dinb)|  
+|![Cloud](../../../media/Hyper-V-Network-Virtualization/All_Symbols_Cloud.png)|Did you know that Microsoft Azure provides similar functionality in the cloud? Learn more about [Microsoft Azure virtualization solutions](https://aka.ms/f9bh7g).<br /><br />Create a hybrid virtualization solution in Microsoft Azure:<br />- [Connect an On-premises Network to Azure via Site to Site VPN and Extend Active Directory onto an IaaS VM DC in Azure](https://aka.ms/d1dinb)|  

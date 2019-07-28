@@ -52,9 +52,9 @@ The table below explains the available auditing levels.
 
 |Audit Level|PowerShell syntax|Description|  
 |----- | ----- | ----- |
-|None|Set-AdfsProperties - AuditLevel None|Auditing is disabled and no events will be logged.|  
-|Basic (Default)|Set-AdfsProperties - AuditLevel Basic|No more than 5 events will be logged for a single request|  
-|Verbose|Set-AdfsProperties - AuditLevel Verbose|All events will be logged.  This will log a significant amount of information per request.|  
+|None|Set-AdfsProperties -AuditLevel None|Auditing is disabled and no events will be logged.|  
+|Basic (Default)|Set-AdfsProperties -AuditLevel Basic|No more than 5 events will be logged for a single request|  
+|Verbose|Set-AdfsProperties -AuditLevel Verbose|All events will be logged.  This will log a significant amount of information per request.|  
   
 To view the current auditing level, you can use the PowerShell cmdlt:  Get-AdfsProperties.  
   
@@ -81,25 +81,25 @@ The table below describes the basic types of events.
 |Sign Out Failure|1207|Describes a failed sign-out request.|  
 
 ## Security Auditing
-Securtity auditing of the AD FS service account can sometimes assist in tracking down issues with password updates, request/response logging, request contect headers and device registration results.  Auditing of the AD FS service account is disabled by default.
+Security auditing of the AD FS service account can sometimes assist in tracking down issues with password updates, request/response logging, request contect headers and device registration results.  Auditing of the AD FS service account is disabled by default.
 
 ### To enable security auditing
-1.       Click Start, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
-2.       Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click **Generate security audits**.
-3.       On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click Add User or Group and add it to the list, and then click OK.
-4.       Open a command prompt with elevated privileges and run the following command to enable auditing
-auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable
-5.       Close **Local Security Policy**, and then open the AD FS Management snap-in.
- 
+1. Click Start, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
+2. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click **Generate security audits**.
+3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click Add User or Group and add it to the list, and then click OK.
+4. Open a command prompt with elevated privileges and run the following command to enable auditing
+   auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable
+5. Close **Local Security Policy**, and then open the AD FS Management snap-in.
+ 
 To open the AD FS Management snap-in, click Start, point to Programs, point to Administrative Tools, and then click AD FS Management.
- 
-6.       In the Actions pane, click Edit Federation Service Properties
-7.       In the Federation Service Properties dialog box, click the Events tab.
-8.       Select the **Success audits** and **Failure audits** check boxes.
-9.       Click OK.
+ 
+6. In the Actions pane, click Edit Federation Service Properties
+7. In the Federation Service Properties dialog box, click the Events tab.
+8. Select the **Success audits** and **Failure audits** check boxes.
+9. Click OK.
 
 ![audit enhancements](media/ad-fs-tshoot-logging/event4.PNG)  
- 
+ 
 >[!NOTE]
 >The above instructions are used only when AD FS is on a stand-alone member server.  If AD FS is running on a domain controller, instead of the Local Security Policy, use the **Default Domain Controller Policy** located in **Group Policy Management/Forest/Domains/Domain Controllers**.  Click edit and navigate to **Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\User Rights Management**
 
@@ -121,7 +121,7 @@ This file is located in **<%system root%>\Windows\ADFS** and is in XML format. T
 After you apply these changes, save the configuration, and restart the AD FS service. After you enable these traces by setting the appropriate switches, they will appear in the AD FS trace log in the Windows Event Viewer.
 
 ## Correlating Events
-One of the hardest things to troubleshoot is access issues that generate alot of error or debug events.
+One of the hardest things to troubleshoot is access issues that generate a lot of error or debug events.
 
 To help with this, AD FS correlates all events that are recorded to the Event Viewer, in both the admin and the debug logs, which correspond to a particular request by using a unique Globally Unique Identifier (GUID) called the Activity ID. This ID is generated when the token issuance request is initially presented to the web application (for applications using the passive requestor profile) or requests sent directly to the claims provider (for applications using WS-Trust). 
 

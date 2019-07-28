@@ -16,9 +16,9 @@ ms.technology: identity-adds
 
 This section includes the following steps:  
 
-- [Restore the first writeable domain controller in each domain](#Restore-the-first-writeable-domain-controller-in-each-domain)  
-- [Reconnect each restored writeable domain controller to the network](#Reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
-- [Add the global catalog to a domain controller in the forest root domain](#Add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
+- [Restore the first writeable domain controller in each domain](#restore-the-first-writeable-domain-controller-in-each-domain)  
+- [Reconnect each restored writeable domain controller to the network](#reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
+- [Add the global catalog to a domain controller in the forest root domain](#add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
 
 ## Restore the first writeable domain controller in each domain  
 
@@ -39,7 +39,7 @@ Then perform the following steps. Procedures for performing certain steps are in
    > Perform an authoritative (or primary) restore operation of SYSVOL only for the first DC to be restored in the forest root domain. Incorrectly performing primary restore operations of the SYSVOL on other DCs leads to replication conflicts of SYSVOL data. 
 
    - There are two options perform a nonauthoritative restore of AD DS and an authoritative restore of SYSVOL:  
-   - Perform a full server recovery and then then force an authoritative synchronization of SYSVOL. For detailed procedures, see [Performing a full server recovery](AD-Forest-Recovery-Perform-a-Full-Recovery.md) and [Perform an authoritative synchronization of DFSR-replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md). 
+   - Perform a full server recovery and then force an authoritative synchronization of SYSVOL. For detailed procedures, see [Performing a full server recovery](AD-Forest-Recovery-Perform-a-Full-Recovery.md) and [Perform an authoritative synchronization of DFSR-replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md). 
    - Perform a full server recovery followed by a system state restore. This option requires that you create both types of backups in advance: a full server backup and a system state backup. For detailed procedures, see [Performing a full server recovery](AD-Forest-Recovery-Perform-a-Full-Recovery.md) and [Performing a nonauthoritative restore of Active Directory Domain Services](AD-Forest-Recovery-Nonauthoritative-Restore.md). 
   
 3. After you restore and restart the writeable DC, verify that the failure did not affect the data on the DC. If the DC data is damaged, then repeat step 2 with a different backup. 
@@ -54,7 +54,7 @@ Then perform the following steps. Procedures for performing certain steps are in
 4. If you suspect that the forest-wide failure was related to network intrusion or malicious attack, reset the account passwords for all administrative accounts, including members of the Enterprise Admins, Domain Admins, Schema Admins, Server Operators, Account Operators groups, and so on. The reset of administrative account passwords should be completed before additional domain controllers are installed during the next phase of the forest recovery. 
 5. On the first restored DC in the forest root domain, seize all domain-wide and forest-wide operations master roles. Enterprise Admins and Schema Admins credentials are needed to seize forest-wide operations master roles. 
   
-     In each child domain, seize domain-wide operations master roles. Although you might retain the operations master roles on the restored DC only temporarily, seizing these roles assures you regarding which DC hosts them at this point in the forest recovery process. As part of your post-recovery process, you can redistribute the operations master roles as needed. For more information about seizing operations master roles, see [Seizing an operations master role](AD-forest-recovery-seizing-operations-master-role.md). For recommendations about where to place operations master roles, see [What Are Operations Masters?](https://technet.microsoft.com/en-us/library/cc779716.aspx). 
+     In each child domain, seize domain-wide operations master roles. Although you might retain the operations master roles on the restored DC only temporarily, seizing these roles assures you regarding which DC hosts them at this point in the forest recovery process. As part of your post-recovery process, you can redistribute the operations master roles as needed. For more information about seizing operations master roles, see [Seizing an operations master role](AD-forest-recovery-seizing-operations-master-role.md). For recommendations about where to place operations master roles, see [What Are Operations Masters?](https://technet.microsoft.com/library/cc779716.aspx). 
   
 6. Clean up metadata of all other writeable DCs in the forest root domain that you are not restoring from backup (all writeable DCs in the domain except for this first DC). If you use the version of Active Directory Users and Computers or Active Directory Sites and Services that is included with Windows Server 2008 or later or RSAT for Windows Vista or later, metadata cleanup is performed automatically when you delete a DC object. In addition, the server object and computer object for the deleted DC are also deleted automatically. For more information, see [Cleaning metadata of removed writable DCs](AD-Forest-Recovery-Cleaning-Metadata.md). 
   
@@ -120,7 +120,7 @@ After validation, Join the DCs to the production network and complete the steps 
 
 - To fix name resolution, create DNS delegation records and configure DNS forwarding and root hints as needed. Run **repadmin /replsum** to check replication between DCs. 
 - If the restored DC’s are not direct replication partners, replication recovery will be much faster by creating temporary connection objects between them. 
-- To validate metadata cleanup, run **Repadmin /viewlist \*** for a list of all DCs in the forest. Run **Nltest /DCList:** *<domain\>* for a list of all DCs in the domain. 
+- To validate metadata cleanup, run **Repadmin /viewlist \\*** for a list of all DCs in the forest. Run **Nltest /DCList:** *<domain\>* for a list of all DCs in the domain. 
 - To check DC and DNS health, run DCDiag /v to report errors on all DCs in the forest. 
 
 ## Add the global catalog to a domain controller in the forest root domain

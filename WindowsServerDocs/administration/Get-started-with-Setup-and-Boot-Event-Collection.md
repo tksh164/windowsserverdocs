@@ -182,7 +182,7 @@ There is also a collector log, which records information about the collector its
   
 **Creating the collector configuration file**  
   
-When you enable the service, three XML configuration files are created and stored in **c:\ProgramData\Microsoft\ BootEventCollector\Config**:  
+When you enable the service, three XML configuration files are created and stored in **c:\ProgramData\Microsoft\BootEventCollector\Config**:  
   
 -   **Active.xml** This file contains the current active configuration of the collector service.  Right after installation, this file has the same contents as Empty.xml. When you set a new collector configuration you save it to this file.  
   
@@ -192,7 +192,7 @@ When you enable the service, three XML configuration files are created and store
   
 **Choosing a file size limit**  
   
-One of the decisions you have to make is to set a file size limit. The best file size limit depends on the expected volume of events and available disk space. Smaller files are more convenient from the standpoint of cleaning the old data. However, each file carries with it the overhead of a 64KB header and reading many files to get the combined history might be inconvenient.The absolute minimum file size limit is 256 KB. A reasonable practical file size limit should be over 1 MB, and 10 MB is probably a good typical value. A higher limit might be reasonable if you expect many events.  
+One of the decisions you have to make is to set a file size limit. The best file size limit depends on the expected volume of events and available disk space. Smaller files are more convenient from the standpoint of cleaning the old data. However, each file carries with it the overhead of a 64KB header and reading many files to get the combined history might be inconvenient. The absolute minimum file size limit is 256 KB. A reasonable practical file size limit should be over 1 MB, and 10 MB is probably a good typical value. A higher limit might be reasonable if you expect many events.  
   
 There are several details to keep in mind regarding the configuration file:  
   
@@ -329,23 +329,23 @@ At the debug level, it might be useful to write the log into a file rather than 
       
  **A suggested approach to troubleshooting the Collector:**  
    
- 1. First of all, verify that the collector has received the connection from the target (it will create the file only when the target starts sending the messages) with   
-```  
-Get-SbecForwarding  
-```  
-If it returns that there is a connection from this target then the problem might be in the autologger settings. If it returns nothing, the problem is with the KDNET connection to start with. To diagnose KDNET connection problems, try checking the connection from both ends (that is, from the collector and from the target).  
+1. First of all, verify that the collector has received the connection from the target (it will create the file only when the target starts sending the messages) with   
+   ```  
+   Get-SbecForwarding  
+   ```  
+   If it returns that there is a connection from this target then the problem might be in the autologger settings. If it returns nothing, the problem is with the KDNET connection to start with. To diagnose KDNET connection problems, try checking the connection from both ends (that is, from the collector and from the target).  
   
 2. To see extended diagnostics from the Collector, add this to the \<collector> element of the configuration file:  
-\<collector ... minlog="verbose">  
-This will enable messages about every received packet.  
+   \<collector ... minlog="verbose">  
+   This will enable messages about every received packet.  
 3. Check whether any packets are received at all. Optionally, you might want to write the log in verbose mode directly to a file rather than through ETW. To do this, add this to the \<collector> element of the configuration file:  
-\<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
+   \<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
       
 4. Check the event logs for any messages about the received packets. Check whether any packets are received at all. If the packets are received but incorrect, check event messages for details.  
 5. From the target side, KDNET writes some diagnostic information into the registry. Look in   
-**HKLM\SYSTEM\CurrentControlSet\Services\kdnet** for messages.  
-  KdInitStatus (DWORD) will = 0 on success and show an error code on error  
-  KdInitErrorString = explanation of the error (also contains informational messages if no error)  
+   **HKLM\SYSTEM\CurrentControlSet\Services\kdnet** for messages.  
+   KdInitStatus (DWORD) will = 0 on success and show an error code on error  
+   KdInitErrorString = explanation of the error (also contains informational messages if no error)  
   
 6. Run Ipconfig.exe on the target and check for the device name it reports. If KDNET loaded properly, the device name should be  something like "kdnic" instead of the original vendor's card name.  
 7. Check whether DHCP is configured for the target. KDNET absolutely requires DHCP.  

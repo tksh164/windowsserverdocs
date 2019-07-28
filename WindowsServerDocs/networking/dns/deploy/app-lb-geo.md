@@ -40,7 +40,7 @@ The following sections show you how to configure DNS policy for application load
 >[!IMPORTANT]
 >The following sections include example Windows PowerShell commands that contain example values for many parameters. Ensure that you replace example values in these commands with values that are appropriate for your deployment before you run these commands.
 
-###<a name="bkmk_clientsubnets"></a>Create the DNS Client Subnets
+### <a name="bkmk_clientsubnets"></a>Create the DNS Client Subnets
 
 You must first identify the subnets or IP address space of the North America and Europe regions.
 
@@ -54,9 +54,9 @@ You can use the following Windows PowerShell commands to create DNS Client Subne
     Add-DnsServerClientSubnet -Name "AmericaSubnet" -IPv4Subnet 192.0.0.0/24,182.0.0.0/24
     Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet 141.1.0.0/24,151.1.0.0/24
     
-For more information, see [Add-DnsServerClientSubnet](https://technet.microsoft.com/library/mt126261.aspx).
+For more information, see [Add-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
-###<a name="bkmk_zscopes2"></a>Create the Zone Scopes
+### <a name="bkmk_zscopes2"></a>Create the Zone Scopes
 
 After the client subnets are in place, you must partition the zone contosogiftservices.com into different zone scopes, each for a datacenter.
 
@@ -78,9 +78,9 @@ You can use the following Windows PowerShell commands to create zone scopes.
     Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "AmsterdamZoneScope"
     
 
-For more information, see [Add-DnsServerZoneScope](https://technet.microsoft.com/library/mt126267.aspx)
+For more information, see [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records2"></a>Add Records to the Zone Scopes
+### <a name="bkmk_records2"></a>Add Records to the Zone Scopes
 
 Now you must add the records representing the web server host into the zone scopes.
 
@@ -91,9 +91,9 @@ The records for the America datacenters were added in the previous scenario. You
     Add-DnsServerResourceRecord -ZoneName "contosogiftservices.com" -A -Name "www" -IPv4Address "141.1.0.1" -ZoneScope "AmsterdamZoneScope"
     
 
-For more information, see [Add-DnsServerResourceRecord](https://technet.microsoft.com/library/jj649925.aspx).
+For more information, see [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies2"></a>Create the DNS Policies
+### <a name="bkmk_policies2"></a>Create the DNS Policies
 
 After you have created the partitions (zone scopes) and you have added records, you must create DNS policies that distribute the incoming queries across these scopes.
 
@@ -114,7 +114,7 @@ You can use the following Windows PowerShell commands to implement these DNS pol
     
     
 
-For more information, see [Add-DnsServerQueryResolutionPolicy](https://technet.microsoft.com/library/mt126273.aspx).
+For more information, see [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 
 You have now successfully created a DNS policy that provides application load balancing across Web servers that are located in five different datacenters on multiple continents.
 

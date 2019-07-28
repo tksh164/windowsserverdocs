@@ -6,8 +6,7 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology: 
-  - networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e7d1f5b-c939-47ca-892f-5bb285027fbc
@@ -238,7 +237,7 @@ You must manually configure a DNS entry for the network location server website 
   
 6.  Click **Done**.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)****Windows PowerShell equivalent commands****  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell equivalent commands</em>***  
   
 The following Windows PowerShell cmdlet or cmdlets perform the same function as the preceding procedure. Enter each cmdlet on a single line, even though they may appear word-wrapped across several lines here because of formatting constraints.  
   
@@ -310,7 +309,7 @@ The Remote Access server and all DirectAccess client computers must be joined to
   
 10. Click **Restart Now** when prompted.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)****Windows PowerShell equivalent commands****  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>Windows PowerShell equivalent commands</em>***  
   
 The following Windows PowerShell cmdlet or cmdlets perform the same function as the preceding procedure. Enter each cmdlet on a single line, even though they may appear word-wrapped across several lines here because of formatting constraints.  
   
@@ -440,7 +439,7 @@ Whether you use a private certificate or a self-signed certificate, they require
   
     CRL distribution points can be accessed through:  
   
-    -   Web servers that use an HTTP-based URL, such as: http://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
+    -   Web servers that use an HTTP-based URL, such as: https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
   
     -   File servers that are accessed through a universal naming convention (UNC) path, such as \\\crl.corp.contoso.com\crld\corp-APP1-CA.crl  
   

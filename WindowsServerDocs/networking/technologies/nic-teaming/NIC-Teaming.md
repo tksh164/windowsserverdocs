@@ -6,8 +6,7 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology: 
-  - networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
@@ -21,8 +20,8 @@ ms.date: 09/10/2018
 
 In this topic, we give you an overview of Network Interface Card (NIC) Teaming in Windows Server 2016. NIC Teaming allows you to group between one and 32 physical Ethernet network adapters into one or more software-based virtual network adapters. These virtual network adapters provide fast performance and fault tolerance in the event of a network adapter failure.  
   
->[!IMPORTANT]
->You must install NIC Team member network adapters in the same physical host computer. 
+> [!IMPORTANT]
+> You must install NIC Team member network adapters in the same physical host computer. 
 
 > [!TIP]  
 > A NIC team that contains only one network adapter cannot provide load balancing and failover. However, with one network adapter, you can use NIC Teaming for separation of network traffic when you are also using virtual Local Area Networks (VLANs).  
@@ -68,7 +67,7 @@ NIC teaming is compatible with all networking technologies in Windows Server 201
   
 -   **802.1X Authentication**. You should not use 802.1X Authentication with NIC Teaming because some switches do not permit the configuration of both 802.1X Authentication and NIC Teaming on the same port.  
   
-To learn about using NIC Teaming within virtual machines (VMs) that run on a Hyper-V host, see 
+To learn about using NIC Teaming within virtual machines (VMs) that run on a Hyper-V host, see [Create a new NIC Team on a host computer or VM](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md).
   
 ## Virtual Machine Queues (VMQs)  
 

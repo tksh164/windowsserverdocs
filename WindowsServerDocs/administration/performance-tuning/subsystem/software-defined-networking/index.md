@@ -25,7 +25,7 @@ To ensure virtual machine traffic is prioritized effectively and fairly, it is r
 
 ## Hyper-V Host Networking
 
-The guidance provided in the [Hyper-V network I/O performance](#netio) section of the    [Performance Tuning for Hyper-V Servers](../../role/remote-desktop/session-hosts.md) guide is applicable when SDN is used, however this section covers additional guidelines that must be followed to ensure the best performance when using SDN.
+The guidance provided in the Hyper-V network I/O performance section of the [Performance Tuning for Hyper-V Servers](../../role/remote-desktop/session-hosts.md) guide is applicable when SDN is used, however this section covers additional guidelines that must be followed to ensure the best performance when using SDN.
 
 ### Physical Network Adapter (NIC) Teaming
 
@@ -36,7 +36,7 @@ The optimal number of team members is two as virtualized traffic will be spread 
 
 ### Encapsulation Offloads
 
-SDN relies on encapsulation of packets to to virtualize the network.  For optimal performance, it is important that the network adapter supports hardware offload for the encapsulation format that is used.  There is no significant performance benefit of one encapsulation format over another.  The default encapsulation format when the network controller is used is VXLAN.
+SDN relies on encapsulation of packets to virtualize the network.  For optimal performance, it is important that the network adapter supports hardware offload for the encapsulation format that is used.  There is no significant performance benefit of one encapsulation format over another.  The default encapsulation format when the network controller is used is VXLAN.
 
 You can determine which encapsulation format is being used through the network controller with the following PowerShell cmdlet:
 

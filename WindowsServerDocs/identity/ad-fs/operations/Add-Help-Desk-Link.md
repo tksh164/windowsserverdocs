@@ -14,11 +14,9 @@ ms.technology: identity-adfs
 
 # Add Help Desk Link 
 
->Applies To: Windows Server 2016, Windows Server 2012 R2
-
 
 ## To Add a Help Desk Link  
-To add the help desk link that is displayed on the sign\-in page, use the following Windows PowerShell PowerShell cmdlet and syntax.  
+To add the help desk link that is displayed on the sign\-in page, use the following Windows PowerShell cmdlet and syntax.  
 
 ![add help desk](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

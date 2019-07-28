@@ -11,7 +11,7 @@ ms.author: jgerend
 ---
 # Enable access-based enumeration on a namespace
 
-> Applies to: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> Applies to: Windows Server 2019, Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Access-based enumeration hides files and folders that users do not have permissions to access. By default, this feature is not enabled for DFS namespaces. You can enable access-based enumeration of DFS folders by using DFS Management. To control access-based enumeration of files and folders in folder targets, you must enable access-based enumeration on each shared folder by using Share and Storage Management.
 
@@ -72,15 +72,15 @@ You can control which users and groups can view individual DFS folders either by
 
 ## To control folder visibility by using a command line
 
-1.  Open a Command Prompt window on a server that has the **Distributed File System** role service or **Distributed File System Tools** feature installed.
+1. Open a Command Prompt window on a server that has the **Distributed File System** role service or **Distributed File System Tools** feature installed.
 
-2.  Type the following command, where *&lt;DFSPath&gt;* is the path of the DFS folder (link), *<DOMAIN\\Account>* is the name of the group or user account, and *(...)* is replaced with additional Access Control Entries (ACEs):
+2. Type the following command, where *&lt;DFSPath&gt;* is the path of the DFS folder (link), *<DOMAIN\\Account>* is the name of the group or user account, and *(...)* is replaced with additional Access Control Entries (ACEs):
 
-    ```
-    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
-    ```
+   ```
+   dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
+   ```
 
-    For example, to replace existing permissions with permissions that allows the Domain Admins and CONTOSO\\Trainers groups Read (R) access to the \\contoso.office\public\training folder, type the following command:
+   For example, to replace existing permissions with permissions that allows the Domain Admins and CONTOSO\\Trainers groups Read (R) access to the \\contoso.office\public\training folder, type the following command:
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 

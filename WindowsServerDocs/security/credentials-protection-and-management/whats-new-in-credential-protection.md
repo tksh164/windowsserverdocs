@@ -1,4 +1,3 @@
-
 ---
 title: What's new in Credential Protection
 description: "Windows Server Security"
@@ -26,7 +25,7 @@ Beginning with Windows 10, version 1511, Credential Manager uses virtualization-
 
 Beginning with Windows 10, version 1607, Isolated User Mode is included with Hyper-V so it no longer is installed separately for Credential Guard deployment.
 
-[Learn more about Credential Guard](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard).
+[Learn more about Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard).
 
 
 ## Remote Credential Guard for signed-in user
@@ -35,7 +34,7 @@ Beginning with Windows 10, version 1607, Remote Credential Guard protects signed
 
 Beginning with Windows 10, version 1703, Remote Credential Guard protects supplied user credentials when using Remote Desktop.
 
-[Learn more about Remote credential guard](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/remote-credential-guard).
+[Learn more about Remote credential guard](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard).
 
 ## Domain protections
 
@@ -45,9 +44,9 @@ Domain protections require an Active Directory domain.
 
 Beginning with Windows 10 version 1507 and Windows Server 2016, if a domain-joined device is able to register its bound public key with a Windows Server 2016 domain controller (DC), then the device can authenticate with the public key using Kerberos PKINIT authentication to a Windows Server 2016 DC.
 
-Beginning with Windows Server 2016, KDCs support authentication using Kerberos key trust.  
+Beginning with Windows Server 2016, KDCs support authentication using Kerberos key trust.  
 
-[Learn more about public key support for domain-joined devices & Kerberos key trust](https://technet.microsoft.com/en-us/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
+[Learn more about public key support for domain-joined devices & Kerberos key trust](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
 ### PKINIT Freshness extension support
 
@@ -55,11 +54,11 @@ Beginning with Windows 10, version 1507 and Windows Server 2016, Kerberos client
 
 Beginning with Windows Server 2016, KDCs can support the PKInit freshness extension.  By default, KDCs will not offer the PKInit freshness extension. 
 
-[Learn more about PKINIT freshness extension support](https://technet.microsoft.com/en-us/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
+[Learn more about PKINIT freshness extension support](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
 ### Rolling public key only user's NTLM secrets
 
-Beginning with Windows Server 2016 domain functional level (DFL), DCs can support rolling a public key only user's NTLM secrets. This feature is unavailble in lower DFLs.
+Beginning with Windows Server 2016 domain functional level (DFL), DCs can support rolling a public key only user's NTLM secrets. This feature is unavailble in lower DFLs.
 
 > [!WARNING] 
 > Adding a domain controller to a domain with rolling NTLM secrets enabled before the DC has been updated with at least the November 8, 2016 servicing runs the risk of the DC crashing. 
@@ -69,7 +68,7 @@ Configuration: For new domains, this feature is enabled by default. For existing
 1. From the Active Directory Administrative center, right-click the domain on the left pane and select **Properties**.
 
     ![Domain properties](../media/Credentials-Protection-And-Management/domain-properties.png)
-    
+
 2. Select **Enable rolling of expiring NTLM secrets during sign on, for users who are required to use Microsoft Passport or smart card for interactive logon**.
 
     ![Autoroll expiring NTLM secrets](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
@@ -82,4 +81,4 @@ Beginning with Windows Server 2016 domain functional level (DFL), DCs can suppor
 
 Configuration: On the authentication policy, click **Allow NTLM network authentication when the user is restricted to selected devices**. 
 
-[Learn more about authentication policies](https://technet.microsoft.com/en-us/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).
+[Learn more about authentication policies](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).
