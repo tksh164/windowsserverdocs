@@ -6,7 +6,7 @@ ms.author: billmath
 manager: mtillman
 ms.date: 06/13/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 
 ms.technology: active-directory-federation-services
 ---
@@ -62,7 +62,7 @@ From your shell or command line:
 ## About the Code
 The key files containing authentication logic are the following:
 
-**App.js** - injects the ADAL module dependency, provides the app configuration values used by ADAL for driving protocol interactions with AAD and indicates whihc routes should not be accessed without previous authentication.
+**App.js** - injects the ADAL module dependency, provides the app configuration values used by ADAL for driving protocol interactions with AAD and indicates which routes should not be accessed without previous authentication.
 
 **index.html** - contains a reference to adal.js
 

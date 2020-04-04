@@ -2,16 +2,15 @@
 title: Advanced Features of Always On VPN
 description: 'Beyond the deployment scenario provided in this deployment, you can add other advanced VPN features to improve the security and availability of your VPN connection.'
 ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
-ms.date: 07/24/19
-ms.author: pashort, v-tea
-author: shortpatti
+ms.date: 07/24/2019
+ms.author: lizross, v-tea
+author: eross-msft
 ms.localizationpriority: medium 
 ms.reviewer: deverette
 ---
-
 # Advanced features of Always On VPN
 
 >Applies to: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows 10
@@ -57,17 +56,15 @@ After you install updates, the RRAS server can enforce certificate revocation fo
 
 **Availability**
 
-The following table lists the approximate release dates of the fixes for each version of Windows.
+The following table lists the releases that contain the fixes for each version of Windows.
 
-|Operating system version |Release or Release date* |
+|Operating system version |Release  |
 |---------|---------|
 |Windows Server, version 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
-|Windows Server 2019<br />Windows Server, version 1809  |Q3, 2019  |
-|Windows Server, version 1803  |Q3, 2019  |
-|Windows Server, version 1709  |Q3, 2019  |
+|Windows Server 2019<br />Windows Server, version 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
+|Windows Server, version 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
+|Windows Server, version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, version 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
-  
-\* All release dates are listed in calendar quarters. Dates are approximate and may change without notice. When an update is released, a link to the release replaces the release date.
 
 **How to configure prerequisites** 
 
@@ -76,7 +73,7 @@ The following table lists the approximate release dates of the fixes for each ve
 1. On the RRAS server, use the **Set-VpnAuthProtocol** PowerShell cmdlet to configure the **RootCertificateNameToAccept** parameter.<br /><br />
    The following example lists the commands to do this. In the example, **CN=Contoso Root Certification Authority** represents the distinguished name of the Root Certification Authority. 
    ``` powershell
-   $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority,*" } )
+   $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority*" } )
    Set-VpnAuthProtocol -RootCertificateNameToAccept $cert1 -PassThru
    ```
 **How to configure the RRAS server to enforce certificate revocation for VPN connections that are based on IKEv2 machine certificates**
@@ -118,7 +115,7 @@ To disable certificate revocation for these VPN connections, set **CertAuthFlags
    Event ID:      41  
    ...  
    Event Xml:
-   <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+   <Event xmlns="https://schemas.microsoft.com/win/2004/08/events/event">
     <UserData>  
      <CertVerifyRevocation>  
 	  <Certificate fileRef="C97AE73E9823E8179903E81107E089497C77A720.cer" subjectName="client01.corp.contoso.com" />  

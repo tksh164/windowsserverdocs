@@ -2,7 +2,7 @@
 title: Understand and see storage resync
 description: Detailed info on when storage resync happens and how to see it in Windows Server 2019.
 keywords: Storage Spaces Direct,storage resync,resync, storage, S2D
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
@@ -34,7 +34,7 @@ Suppose we update our string from "HELLO" to "HELP!" at this time.
 
 ![ASCII of string "help!"](media/understand-storage-resync/help.png)
 
-Once we update the string, copy #2 and #3 will be succesfully updated. However, copy #1 still cannot be accessed because server #1 is down temporarily (for maintanence). 
+Once we update the string, copy #2 and #3 will be successfully updated. However, copy #1 still cannot be accessed because server #1 is down temporarily (for maintanence). 
 
 ![Gif of writing to copy #2 and #2"](media/understand-storage-resync/write.gif)
 

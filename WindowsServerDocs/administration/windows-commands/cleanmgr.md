@@ -1,7 +1,7 @@
 ---
 title: cleanmgr
 description: Learn how to use command-line options to configure the Disk Cleanup tool (Cleanmgr.exe) to automatically clean up certain files.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: iangpgh
 ms.author: jgerend
@@ -83,4 +83,4 @@ cleanmgr /tuneup:1
 
 ## Additional references
 
-[Free up drive space in Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
+[Free up drive space in Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)

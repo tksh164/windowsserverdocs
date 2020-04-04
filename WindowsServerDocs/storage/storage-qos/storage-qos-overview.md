@@ -1,6 +1,6 @@
 ---
 title: Storage Quality of Service
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.author: JGerend
 ms.technology: storage-qos
@@ -11,7 +11,7 @@ ms.date: 10/10/2016
 ---
 # Storage Quality of Service
 
-> Applies to: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Applies to: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Storage Quality of Service (QoS) in Windows Server 2016 provides a way to centrally monitor and manage storage performance for virtual machines using Hyper-V and the Scale-Out File Server roles. The feature automatically improves storage resource fairness between multiple virtual machines using the same file server cluster and allows policy-based minimum and maximum performance goals to be configured in units of normalized IOPs.  
 
@@ -39,7 +39,7 @@ Storage QoS supports two deployment scenarios:
 
     For Storage QoS, the Failover Cluster is required on Storage servers, but the compute servers are not required to be in a failover cluster. All servers (used for both Storage and Compute) must be running Windows Server 2016.  
 
-    If you do not have a Scale-Out File Server cluster deployed for evaluation purposes, for step by step instructions to build one using either existing servers or virtual machines, see [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
+    If you do not have a Scale-Out File Server cluster deployed for evaluation purposes, for step by step instructions to build one using either existing servers or virtual machines, see [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](https://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx).  
 
 -   **Hyper-V using Cluster Shared Volumes.** This scenario requires both of the following:  
 
@@ -116,7 +116,7 @@ The **RSAT-Hyper-V-Tools** optional feature includes the Windows PowerShell modu
 -   Windows PowerShell: Add-WindowsFeature RSAT-Hyper-V-Tools  
 
 #### Deploy virtual machines to run workloads for testing  
-You will need some virtual machines stored on the Scale-Out File Server with relevant workloads.  For some tips in how to simulate load and do some stress testing, see the following page for a recommended tool (DiskSpd) and some example usage: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares.](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
+You will need some virtual machines stored on the Scale-Out File Server with relevant workloads.  For some tips in how to simulate load and do some stress testing, see the following page for a recommended tool (DiskSpd) and some example usage: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares.](https://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx)  
 
 The example scenarios shown in this guide includes five virtual machines. BuildVM1, BuildVM2, BuildVM3 and BuildVM4 are running a desktop workload with low to moderate storage demands. TestVm1 is running an online transaction processing benchmark with high storage demand.  
 

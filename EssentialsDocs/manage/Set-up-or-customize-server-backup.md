@@ -3,7 +3,7 @@ title: "Set up or customize server backup"
 description: "Describes how to use Windows Server Essentials"
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -78,7 +78,7 @@ manager: dongill
   
 -   You should visit the website for your external storage drive manufacturer to ensure that your backup drive is supported on computers running  Windows Server Essentials.  
   
--   The drive cannot contain an Extensible Firmware Interface (EFI) system partition. If an EFI partition is present on a USB drive, it is assumed that the disk is a startup disk. If you are certain that you don ��t need the data on the disk, you can reformat the disk and use it for backups.  
+-   The drive cannot contain an Extensible Firmware Interface (EFI) system partition. If an EFI partition is present on a USB drive, it is assumed that the disk is a startup disk. If you are certain that you don't need the data on the disk, you can reformat the disk and use it for backups.  
   
     > [!CAUTION]
     >  All data will be deleted when you reformat the disk.  

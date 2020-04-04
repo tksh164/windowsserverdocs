@@ -3,7 +3,7 @@ title: "Install the Windows Server Essentials Log Collector"
 description: "Describes how to use Windows Server Essentials"
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -25,7 +25,7 @@ The  Windows Server Essentials Log Collector installation wizard installs the Lo
 1.  Download the Log Collector installation package to any server or computer on the network.  
   
     > [!NOTE]
-    >  You can [download the Log Collector installation package](https://go.microsoft.com/fwlink/p/?LinkId=255470) from the Microsoft.  
+    > [Download the Windows Server Essentials Log Collector installation package](https://www.microsoft.com/download/details.aspx?id=34821).  
   
 2.  Double-click the Log Collector icon.  
   

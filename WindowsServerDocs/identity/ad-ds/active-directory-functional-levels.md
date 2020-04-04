@@ -7,7 +7,7 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 10/29/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 
@@ -23,7 +23,7 @@ When you deploy AD DS, set the domain and forest functional levels to the highes
 
 With the end of life of Windows 2003, Windows 2003 domain controllers (DCs) need to be updated to Windows Server 2008, 2008R2, 2012, 2012R2, 2016, or 2019. As a result, any domain controller that runs Windows Server 2003 should be removed from the domain.
 
-At the Windows Server 2008 and higher domain functional levels, Distributed File Service (DFS) Replication is used to replicate SYSVOL folder contents between domain controllers. If you create a new domain at the Windows Server 2008 domain functional level or higher, DFS Replication is automatically used to replicate SYSVOL. If you created the domain at a lower functional level, you will need to migrate from using FRS to DFS replication for SYSVOL. For migration steps, you can either follow the [procedures on TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) or you can refer to the [streamlined set of steps on the Storage Team File Cabinet blog](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
+At the Windows Server 2008 and higher domain functional levels, Distributed File Service (DFS) Replication is used to replicate SYSVOL folder contents between domain controllers. If you create a new domain at the Windows Server 2008 domain functional level or higher, DFS Replication is automatically used to replicate SYSVOL. If you created the domain at a lower functional level, you will need to migrate from using FRS to DFS replication for SYSVOL. For migration steps, you can either follow the [procedures on TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) or you can refer to the [streamlined set of steps on the Storage Team File Cabinet blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
 
 ## Windows Server 2019
 
@@ -113,7 +113,7 @@ Supported Domain Controller Operating System:
 ### Windows Server 2008R2 domain functional level features
 
 * All default Active Directory features, all features from the Windows Server 2008 domain functional level, plus the following features:
-   * Authentication mechanism assurance, which packages information about the type of logon method (smart card or user name/password) that is used to authenticate domain users inside each user’s Kerberos token. When this feature is enabled in a network environment that has deployed a federated identity management infrastructure, such as Active Directory Federation Services (AD FS), the information in the token can then be extracted whenever a user attempts to access any claims-aware application that has been developed to determine authorization based on a user’s logon method.
+   * Authentication mechanism assurance, which packages information about the type of logon method (smart card or user name/password) that is used to authenticate domain users inside each user's Kerberos token. When this feature is enabled in a network environment that has deployed a federated identity management infrastructure, such as Active Directory Federation Services (AD FS), the information in the token can then be extracted whenever a user attempts to access any claims-aware application that has been developed to determine authorization based on a user's logon method.
    * Automatic SPN management for services running on a particular computer under the context of a Managed Service Account when the name or DNS host name of the machine account changes. For more information about Managed Service Accounts, see [Service Accounts Step-by-Step Guide](https://go.microsoft.com/fwlink/?LinkId=180401).
 
 ## Windows Server 2008

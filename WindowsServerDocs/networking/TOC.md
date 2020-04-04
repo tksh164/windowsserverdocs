@@ -83,6 +83,10 @@
 #### [Use DNS policy for applying filters on DNS queries](dns/deploy/apply-filters-on-dns-queries.md)
 #### [Use DNS policy for app load balancing](dns/deploy/app-lb.md)
 #### [Use DNS policy for app load balancing with geo-location awareness](dns/deploy/app-lb-geo.md)
+### [Troubleshooting DNS issues](dns/troubleshoot/troubleshoot-dns-data-collection.md)
+#### [Troubleshooting DNS clients](dns/troubleshoot/troubleshoot-dns-client.md)
+##### [Disable DNS client-side caching on DNS clients](dns/troubleshoot/disable-dns-client-side-caching.md)
+#### [Troubleshooting DNS servers](dns/troubleshoot/troubleshoot-dns-server.md)
 
 ## [Dynamic Host Configuration Protocol (DHCP)](technologies/dhcp/dhcp-top.md)
 ### [What's new in DHCP](technologies/dhcp/What-s-New-in-DHCP.md)
@@ -200,6 +204,7 @@
 ### [Network Shell (Netsh) example batch file](technologies/netsh/netsh-wins.md)
 ### [Netsh http commands](technologies/netsh/netsh-http.md)
 ### [Netsh interface portproxy commands](technologies/netsh/netsh-interface-portproxy.md)
+### [Netsh mbn commands](technologies/netsh/netsh-mbn.md)
 
 ## [Network subsystem performance tuning](technologies/network-subsystem/net-sub-performance-top.md)
 ### [Choosing a network adapter](technologies/network-subsystem/net-sub-choose-nic.md)
@@ -249,7 +254,7 @@
 ### [Plan for SDN](sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)
 #### [Installation and preparation requirements for deploying Network Controller](sdn/plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)
 
-### [Deploy SDN](sdn/deploy/Deploy-Software-Defined-Networking.md)
+### Deploy SDN
 #### [Deploy an SDN Infrastructure](sdn/deploy/Deploy-a-Software-Defined-Network-Infrastructure.md)
 ##### [Deploy an SDN infrastructure using scripts](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
 #### [Deploy SDN technologies using Windows PowerShell](sdn/deploy/Deploy-Software-Defined-Network-Technologies-using-Windows-powershell.md)

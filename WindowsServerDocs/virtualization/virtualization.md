@@ -2,13 +2,13 @@
 title: Virtualization
 description:
 layout: LandingPage
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: brianlic
 ms.technology: compute
 ms.assetid: c248b41f-0de3-7136-9a25-b4b07e41ebf0
 ms.topic: landing-page
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 ms.localizationpriority: high
 ---
 

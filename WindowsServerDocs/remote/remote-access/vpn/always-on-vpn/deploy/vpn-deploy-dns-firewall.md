@@ -1,13 +1,13 @@
 ---
 title: Configure DNS and Firewall Settings
 description: This topic provides detailed instructions for deploying Always On VPN in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: d8cf3bae-45bf-4ffa-9205-290d555c59da
 ms.localizationpriority: medium 
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/11/2018
 ---
 # Step 5. Configure DNS and firewall settings
@@ -44,7 +44,7 @@ The Edge Firewall separates the External Perimeter Network from the Public Inter
 
 Your Edge Firewall must allow and forward specific ports to your VPN server. If you use Network Address Translation (NAT) on your edge firewall, you might need to enable port forwarding for User Datagram Protocol (UDP) ports 500 and 4500. Forward these ports to the IP address that is assigned to the external interface of your VPN server.
 
-If you’re routing traffic inbound and performing NAT at or behind the VPN server, then you must open your firewall rules to allow UDP ports 500 and 4500 inbound to the external IP address applied to the public interface on the VPN server.
+If you're routing traffic inbound and performing NAT at or behind the VPN server, then you must open your firewall rules to allow UDP ports 500 and 4500 inbound to the external IP address applied to the public interface on the VPN server.
 
 In either case, if your firewall supports deep packet inspection and you have difficulty establishing client connections, you should attempt to relax or disable deep packet inspection for IKE sessions.
 
@@ -78,4 +78,4 @@ If you are not using the default RADIUS ports in your NPS deployment, you must c
 
 ## Next steps
 
-[Step 6. Configure Windows 10 Client Always On VPN Connections](vpn-deploy-client-vpn-connections.md): In this step, you configure the Windows 10 client computers to communicate with that infrastructure with a VPN connection. You can use several technologies to configure Windows 10 VPN clients, including Windows PowerShell, System Center Configuration Manager, and Intune. All three require an XML VPN profile to configure the appropriate VPN settings.
+[Step 6. Configure Windows 10 Client Always On VPN Connections](vpn-deploy-client-vpn-connections.md): In this step, you configure the Windows 10 client computers to communicate with that infrastructure with a VPN connection. You can use several technologies to configure Windows 10 VPN clients, including Windows PowerShell, Microsoft Endpoint Configuration Manager, and Intune. All three require an XML VPN profile to configure the appropriate VPN settings.

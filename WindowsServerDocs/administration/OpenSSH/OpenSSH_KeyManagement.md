@@ -77,8 +77,8 @@ Generating public/private ed25519 key pair.
 Enter file in which to save the key (C:\Users\username\.ssh\id_ed25519):
 ```
 
-You can hit Enter to accept the default, or specify a path where you’d like your keys to be generated. 
-At this point, you’ll be prompted to use a passphrase to encrypt your private key files.
+You can hit Enter to accept the default, or specify a path where you'd like your keys to be generated. 
+At this point, you'll be prompted to use a passphrase to encrypt your private key files.
 The passphrase works with the key file to provide 2-factor authentication. 
 For this example, we are leaving the passphrase empty. 
 
@@ -141,7 +141,7 @@ After completing these steps, whenever a private key is needed for authenticatio
 
 ## Deploying the public key
 
-To use the user key that was created above, the public key needs to be placed on the server into a text file called *authorized_keys* under users\username\ssh. 
+To use the user key that was created above, the public key needs to be placed on the server into a text file called *authorized_keys* under users\username\.ssh\. 
 The OpenSSH tools include scp, which is a secure file-transfer utility, to help with this.
 
 To move the contents of your public key (~\.ssh\id_ed25519.pub) into a text file called authorized_keys in ~\.ssh\ on your server/host.
@@ -152,7 +152,7 @@ This example uses the Repair-AuthorizedKeyPermissions function in the OpenSSHUti
 # Make sure that the .ssh directory exists in your server's home folder
 ssh user1@domain1@contoso.com mkdir C:\users\user1\.ssh\
 
-# Use scp to opy the public key file generated previously to authorized_keys on your server
+# Use scp to copy the public key file generated previously to authorized_keys on your server
 scp C:\Users\user1\.ssh\id_ed25519.pub user1@domain1@contoso.com:C:\Users\user1\.ssh\authorized_keys
 
 # Appropriately ACL the authorized_keys file on your server  

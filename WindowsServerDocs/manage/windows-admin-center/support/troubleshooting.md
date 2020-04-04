@@ -6,7 +6,7 @@ ms.topic: article
 author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 06/07/2019
 ---
 # Troubleshooting Windows Admin Center
@@ -14,7 +14,7 @@ ms.date: 06/07/2019
 > Applies to: Windows Admin Center, Windows Admin Center Preview
 
 > [!Important]
-> This guide will help you diagnose and resolve issues that are preventing you from using Windows Admin Center. If you are having an issue with a specific tool, please check to see if you are experiencing a [known issue.](http://aka.ms/wacknownissues)
+> This guide will help you diagnose and resolve issues that are preventing you from using Windows Admin Center. If you are having an issue with a specific tool, please check to see if you are experiencing a [known issue.](https://aka.ms/wacknownissues)
 
 ## Installer fails with message: **_The Module 'Microsoft.PowerShell.LocalAccounts' could not be loaded._**
 
@@ -46,12 +46,6 @@ This can happen if your default PowerShell module path has been modified or remo
   * This may have cleared your trusted hosts settings. [Follow these instructions to update your trusted hosts settings.](#configure-trustedhosts)
 
 ### If you've installed Windows Admin Center as a **Gateway on Windows Server**
-
-* Did you upgrade from a previous version of Windows Admin Center? Check to make sure the firewall rule was not deleted due to [this known issue](known-issues.md#upgrade). Use the PowerShell command below to determine if the rule exists. If not, follow [these instructions](known-issues.md#upgrade) to recreate it.
-    
-    ```powershell
-    Get-NetFirewallRule -DisplayName "SmeInboundOpenException"
-    ```
 
 * [Check the Windows version](#check-the-windows-version) of the client and server.
 
@@ -166,8 +160,10 @@ When installing Windows Admin Center, you are given the option to let Windows Ad
 
    > [!TIP]
    > For an easy way to set all TrustedHosts at once, you can use a wildcard.
-   > 
-   >     Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   >
+   > ```powershell
+   > Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   > ```
 
 4. When you are done testing, you can issue the following command from an elevated PowerShell session to clear your TrustedHosts setting:
 

@@ -2,7 +2,7 @@
 title: Safely virtualizing Active Directory Domain Services (AD DS)
 description: USN Rollback and safe virtualization of Active Directory
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -61,7 +61,7 @@ On a domain controller, event messages that resemble the following are recorded 
 
 These events may be captured in the Directory Service event log. However, they may be overwritten before they are observed by an administrator.
 
-If you suspect a USN rollback has ocurred but do not see a corresponding event in the event logs, check for the DSA Not Writable entry in the registry. This entry provides forensic evidence that a USN rollback has occurred.
+If you suspect a USN rollback has occurred but do not see a corresponding event in the event logs, check for the DSA Not Writable entry in the registry. This entry provides forensic evidence that a USN rollback has occurred.
 
 ```
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\NTDS\Parameters

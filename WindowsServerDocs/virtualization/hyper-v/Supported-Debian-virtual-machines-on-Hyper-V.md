@@ -1,7 +1,7 @@
 ---
 title: Supported Debian virtual machines on Hyper-V
 description: "Lists the Linux integration services and features included in each version"
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -26,7 +26,7 @@ The following feature distribution map indicates the features that are present i
 
 * (*blank*) - Feature not available
 
-| **Feature**                                                                                                                                  | **Windows Server operating system version** | **10 (buster)** | **9.0-9.6 (stretch)** | **8.0-8.11 (jessie)** | **7.0-7.11 (wheezy)** |
+| **Feature**                                                                                                                                  | **Windows Server operating system version** | **10.0-10.3 (buster)** | **9.0-9.12 (stretch)** | **8.0-8.11 (jessie)** | **7.0-7.11 (wheezy)** |
 |----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | **Availability**                                                                                                                             |                                             | Built in              | Built in              | Built in              | Built in (Note 6)     |
 | **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
@@ -62,7 +62,7 @@ The following feature distribution map indicates the features that are present i
 | PCI Passthrough/DDA                                                                                                                          | 2019, 2016                                  | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
 | **[Generation 2 virtual machines](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)** |                                             |                       |                       |                       |                       |
 | Boot using UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | &#10004; Note 7       | &#10004; Note 7       | &#10004; Note 7       |                       |
-| Secure boot                                                                                                                                  | 2019, 2016                                  |                       |                       |                       |                       |
+| Secure boot                                                                                                                                  | 2019, 2016                                  | &#10004;              |                       |                       |                       |
 
 
 ## <a name="BKMK_notes"></a>Notes

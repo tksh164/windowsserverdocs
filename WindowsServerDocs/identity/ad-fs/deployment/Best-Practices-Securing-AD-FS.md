@@ -7,13 +7,12 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 
 ms.technology: identity-adfs
 ---
 
-## Best practices for securing Active Directory Federation Services
-
+# Best practices for securing Active Directory Federation Services
 
 This document provides best practices for the secure planning and deployment of Active Directory Federation Services (AD FS) and Web Application Proxy.  It contains information about the default behaviors of these components and recommendations for additional security configurations for an organization with specific use cases and security requirements.
 
@@ -23,6 +22,9 @@ This document applies to AD FS and WAP in Windows Server 2012 R2 and Windows Ser
 For deployment in on-premises environments, we recommend a standard deployment topology consisting of one or more AD FS servers on the internal corporate network, with one or more Web Application Proxy (WAP) servers in a DMZ or extranet network.  At each layer, AD FS and WAP, a hardware or software load balancer is placed in front of the server farm and handles traffic routing.  Firewalls are placed as required in front of the external IP address of the load balancer in front of each (FS and proxy) farm.
 
 ![AD FS Standard topology](media/Best-Practices-Securing-AD-FS/adfssec1.png)
+
+>[!NOTE]
+> AD FS requires a full writable Domain Controller to function as opposed to a Read-Only Domain Controller. If a planned topology includes a Read-Only Domain controller, the Read-Only domain controller can be used for authentication but LDAP claims processing will require a connection to the writable domain controller.
 
 ## Ports required
 The below diagram depicts the firewall ports that must be enabled between and amongst the components of the AD FS and WAP deployment.  If the deployment does not include Azure AD / Office 365, the sync requirements can be disregarded.
@@ -58,9 +60,9 @@ Protocol |Ports |Description
 HTTPS|443(TCP/UDP)|Used for device authentication.
 TCP|49443 (TCP)|Used for certificate authentication.
 
-For additional information on required ports and protocols required for hybrid deployments see the document [here](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
+For additional information on required ports and protocols required for hybrid deployments see the document [here](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-ports).
 
-For detailed information about ports and protocols required for an Azure AD and Office 365 deployment, see the document [here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+For detailed information about ports and protocols required for an Azure AD and Office 365 deployment, see the document [here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
 ### Endpoints enabled
 
@@ -105,15 +107,15 @@ The federation service proxy (part of the WAP) provides congestion control to pr
 #### To verify the settings, you can do the following:
 1.	On your Web Application Proxy computer, start an elevated command window.
 2.	Navigate to the ADFS directory, at %WINDIR%\adfs\config.
-3.	Change the congestion control settings from its default values to ‘<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />’.
+3.	Change the congestion control settings from its default values to ‘<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />'.
 4.	Save and close the file.
-5.	Restart the AD FS service by running ‘net stop adfssrv’ and then ‘net start adfssrv’.
+5.	Restart the AD FS service by running ‘net stop adfssrv' and then ‘net start adfssrv'.
 For your reference, guidance on this capability can be found [here](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
 
 ### Standard HTTP request checks at the proxy
 The proxy also performs the following standard checks against all traffic:
 
-- The FS-P itself authenticates to AD FS via a short lived certificate.  In a scenario of suspected compromise of dmz servers, AD FS can “revoke proxy trust” so that it no longer trusts any incoming requests from potentially compromised proxies. Revoking the proxy trust revokes each proxy’s own certificate so that it cannot successfully authenticate for any purpose to the AD FS server
+- The FS-P itself authenticates to AD FS via a short lived certificate.  In a scenario of suspected compromise of dmz servers, AD FS can “revoke proxy trust” so that it no longer trusts any incoming requests from potentially compromised proxies. Revoking the proxy trust revokes each proxy's own certificate so that it cannot successfully authenticate for any purpose to the AD FS server
 - The FS-P terminates all connections and creates a new HTTP connection to the AD FS service on the internal network. This provides a session-level buffer between external devices and the AD FS service. The external device never connects directly to the AD FS service.
 - The FS-P performs HTTP request validation that specifically filters out HTTP headers that are not required by AD FS service.
 

@@ -1,7 +1,7 @@
 ---
 title: Step 2 - Configure WSUS
 description: "Windows Server Update Service (WSUS) topic - Configure WSUS is step two in a four step process for deploying WSUS"
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
@@ -13,7 +13,7 @@ ms.date: 10/16/2017
 ---
 # Step 2: Configure WSUS
 
->Applies To: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Applies To: Windows Server 2019, Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 After installing the WSUS server role on your server, you need to properly configure it. The following checklist summarizes the steps involved in performing the initial configuration for your WSUS server.
 
@@ -50,33 +50,33 @@ When you have the answers for these questions, you can start configuring the fol
 ### 2.1.1. Connection from the WSUS server to the Internet
 If there is a corporate firewall between WSUS and the Internet, you might have to configure that firewall to ensure WSUS can obtain updates. To obtain updates from Microsoft Update, the WSUS server uses port 443 for HTTPS protocol. Although most of corporate firewalls allow this type of traffic, there are some companies that restrict Internet access from the servers due the company's security policies. if your company restricts access, you need to obtain authorization to allow Internet access from WSUS to the following list of URLs:
 
-- http://windowsupdate.microsoft.com
+- http\://windowsupdate.microsoft.com
 
-- http://*.windowsupdate.microsoft.com
+- http\://\*.windowsupdate.microsoft.com
 
-- https://*.windowsupdate.microsoft.com
+- https\://\*.windowsupdate.microsoft.com
 
-- http://*.update.microsoft.com
+- http\://\*.update.microsoft.com
 
-- https://*.update.microsoft.com
+- https\://\*.update.microsoft.com
 
-- http://*.windowsupdate.com
+- http\://\*.windowsupdate.com
 
-- http://download.windowsupdate.com
+- http\://download.windowsupdate.com
 
-- https://download.microsoft.com
+- https\://download.microsoft.com
 
-- http://*.download.windowsupdate.com
+- http\://\*.download.windowsupdate.com
 
-- http://wustat.windows.com
+- http\://wustat.windows.com
 
-- http://ntservicepack.microsoft.com
+- http\://ntservicepack.microsoft.com
 
-- http://go.microsoft.com
+- http\://go.microsoft.com
 
-- http://dl.delivery.mp.microsoft.com
+- http\://dl.delivery.mp.microsoft.com
 
-- https://dl.delivery.mp.microsoft.com
+- https\://dl.delivery.mp.microsoft.com
 
 > [!IMPORTANT]
 > For a scenario in which WSUS is failing to obtain updates due firewall configurations, see [article 885819](https://support.microsoft.com/kb/885819) in the Microsoft Knowledge Base.
@@ -383,11 +383,11 @@ WSUS requires two ports for SSL: one port that uses HTTPS to send encrypted meta
 
 2.  Go to **start**, type **CMD**, right-click **Command prompt**, and then click **Run as administrator**.
 
-3.  Navigate to the *%ProgramFiles%***\Update Services\Tools\\** folder.
+3.  Navigate to the _%ProgramFiles%_**\\Update Services\\Tools\\** folder.
 
 4.  In the Command prompt window, type the following command:
 
-    **Wsusutil configuressl***certificateName*
+    **Wsusutil configuressl**_certificateName_
 
     where:
 

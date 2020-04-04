@@ -7,7 +7,7 @@ ms.author: billmath
 manager: femila
 ms.date: 07/02/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 
 ms.technology: identity-adfs
 ---
@@ -24,6 +24,9 @@ The AD FS Rapid Restore tool can be used in the following scenarios:
 	- Use the tool to create a cold standby installation of AD FS that can be quickly deployed in place of the online AD FS server
 2. Deploy identical test and production environments
 	- Use the tool to quickly create an accurate copy of the production AD FS in a test environment, or to quickly deploy a validated test configuration to production
+3. Migrate from a SQL based configuration to WID and vice versa
+	- Use the tool to move from a SQL based farm configuration to WID or vice versa. 
+
 
 >[!NOTE] 
 >If you are using SQL Merge Replication or Always on Availablity Groups, the Rapid Restore tool is not supported. We recommend using SQL based backups and a backup of the SSL certificate as an alternative.
@@ -76,7 +79,7 @@ Parameter Sets
 "FileSystem" indicates that the user wants to store it in a folder locally or in the network
 "Azure" indicates the user wants to store it in the Azure Storage Container
 When the user performs the backup, they select the backup location, either the File System or in the cloud. 
-For Azure to be used, Azure Storage Credentials should be passed to the cmdlet. The storage credentials contains the account name and key. In addition to this, a container name must also be passed in. If the container doesn’t exist, it is created during the backup. 
+For Azure to be used, Azure Storage Credentials should be passed to the cmdlet. The storage credentials contains the account name and key. In addition to this, a container name must also be passed in. If the container doesn't exist, it is created during the backup. 
 For the file system to be used, a storage path must be given. In that directory, a new directory will be created for each backup. Each directory created will contain the backed up files. 
 
 - **EncryptionPassword &lt;string&gt;** - The password that is going to be used to encrypt all the backed up files before storing it
@@ -170,36 +173,36 @@ Restore-ADFS -StorageType "Azure" -AzureConnectionCredential $cred -DecryptionPa
 ### Restore the AD FS configuration without the DKM from the File System
  
 ```powershell
-Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password"
+Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -DecryptionPassword "password"
 ```
 
 ### Restore the AD FS configuration with the DKM to the File System 
  
 ```powershell
-Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -RestoreDKM
+Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -DecryptionPassword "password" -RestoreDKM
 ```
 
 ### Restore the AD FS Configuration to WID
 
 ```powershell
-Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -DBConnectionString "WID"
+Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -DecryptionPassword "password" -DBConnectionString "WID"
 ``` 
 
 ### Restore the AD FS Configuration to SQL
 
 ```powershell
-Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -DBConnectionString "Data Source=TESTMACHINE\SQLEXPRESS; Integrated Security=True"
+Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -DecryptionPassword "password" -DBConnectionString "Data Source=TESTMACHINE\SQLEXPRESS; Integrated Security=True"
 ```
 
 ### Restores the AD FS Configuration with the specified GMSA
 
 ```powershell
-Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -GroupServiceAccountIdentifier "mangupd1\adfsgmsa$"
+Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -DecryptionPassword "password" -GroupServiceAccountIdentifier "mangupd1\adfsgmsa$"
 ```
 ### Restore the AD FS Configuration with the specified service account creds
 
 ```powershell
-Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\uSERS\administrator\testExport\" -DecryptionPassword "password" -ServiceAccountCredential $cred
+Restore-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -DecryptionPassword "password" -ServiceAccountCredential $cred
 ```
 
 ## Encryption information
@@ -265,7 +268,7 @@ Release: July 2018
 
 **Fixed issues:**
 
-   - Bug fix: handle service account passwords that have special characters in them (ie, ‘&’)
+   - Bug fix: handle service account passwords that have special characters in them (ie, ‘&')
    - Bug fix: restoration fails because Microsoft.IdentityServer.Servicehost.exe.config is being used by another process
 
 

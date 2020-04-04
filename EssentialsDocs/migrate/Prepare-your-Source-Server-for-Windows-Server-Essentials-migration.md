@@ -3,7 +3,7 @@ title: "Prepare your Source Server for Windows Server Essentials migration1"
 description: "Describes how to use Windows Server Essentials"
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -84,7 +84,7 @@ Complete the following preliminary steps to ensure that the settings and data on
   
 ###### To use the Windows Server Solutions BPA to analyze your Source Server  
   
-1. Download and install the [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) at the Microsoft Download Center.  
+1. Download and install the [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/download/details.aspx?id=15556) at the Microsoft Download Center.  
   
 2. After the download is complete, click **Start**, point to **All Programs**, and then click **SBS Best Practices Analyzer Tool**.  
   

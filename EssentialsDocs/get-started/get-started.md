@@ -2,7 +2,7 @@
 title: "Get started with Windows Server Essentials"
 description: "Describes how to use Windows Server Essentials"
 ms.custom: na
-ms.prod: windows-server-2019-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -56,6 +56,6 @@ manager: jasgro
   
 -   [Windows Server TechNet Library](https://technet.microsoft.com/library/bb625087.aspx)  
   
--   [The Windows Server Essentials and Windows Small Business Server Blog](http://blogs.technet.com/b/sbs/)  
+-   [The Windows Server Essentials and Windows Small Business Server Blog](https://blogs.technet.com/b/sbs/)  
   
 -   [Windows Server Essentials (Small Business Server) TechNet Library](https://technet.microsoft.com/library/cc514417.aspx)

@@ -1,7 +1,7 @@
 ﻿---
 title: Deploy Network File System
 description: Describes how to deploy Network File System.
-ms.prod: windows-server-threshold 
+ms.prod: windows-server 
 ms.topic: article 
 author: JasonGerend 
 ms.author: jgerend 
@@ -15,7 +15,7 @@ ms.localizationpriority: medium
 
 Network File System (NFS) provides a file sharing solution that lets you transfer files between computers running Windows Server and UNIX operating systems using the NFS protocol. This topic describe the steps you should follow to deploy NFS.
 
-## What’s new in Network File System
+## What's new in Network File System
 
 Here's what's changed for NFS in Windows Server 2012:
 

@@ -7,7 +7,7 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 09/17/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ---
 # Extensions for Windows Admin Center
 
@@ -19,10 +19,10 @@ Windows Admin Center extensions are built using modern web technologies includin
 
 ## Why you should consider developing an extension for Windows Admin Center
 
-Here’s the value you can bring to your product and customers by developing extensions for Windows Admin Center:
+Here's the value you can bring to your product and customers by developing extensions for Windows Admin Center:
 
 - **Integrate with Windows Admin Center tools:** Integrate your products and services with server and cluster management tools in Windows Admin Center and deliver unified and seamless, end-to-end monitoring, management, troubleshooting experiences to your customers.
-- **Leverage platform security, identity and management capabilities:** Enable Azure Active Directory (AAD) support, Multi-Factor Authentication, Role-Based Access Control (RBAC), logging, auditing for your product and services by leveraging Windows Admin Center platform capabilities to meet the complex requirements of today’s IT organizations.
+- **Leverage platform security, identity and management capabilities:** Enable Azure Active Directory (AAD) support, Multi-Factor Authentication, Role-Based Access Control (RBAC), logging, auditing for your product and services by leveraging Windows Admin Center platform capabilities to meet the complex requirements of today's IT organizations.
 - **Develop using the latest web technologies:** Quickly build stunning user experiences using modern web technologies including HTML5, CSS, Angular, TypeScript and jQuery, and rich, powerful UI controls included in the Windows Admin Center SDK.
 - **Extend product outreach:** Become a part of the new Windows Admin Center ecosystem with outreach to our quickly growing customer base and leverage the Windows Server 2019 launch momentum later this year.
 
@@ -58,7 +58,7 @@ The DataON MUST extension brings monitoring, management and end-to-end insight i
 
 ### Fujitsu
 
-Fujitsu’s ServerView Health and RAID Health extensions for Windows Admin Center provide in-depth monitoring and management of critical hardware components such as processors, memory, power and storage subsystems for Fujitsu PRIMERGY servers. By utilizing the Windows Admin Center UX design patterns and UI controls, Fujitsu has brought us a huge step towards our vision of end-to-end insight into server roles and services, to operating system, and to hardware management through the Windows Admin Center platform. [Learn more about Fujitsu's extensions and their development experience](case-studies/fujitsu.md).
+Fujitsu's ServerView Health and RAID Health extensions for Windows Admin Center provide in-depth monitoring and management of critical hardware components such as processors, memory, power and storage subsystems for Fujitsu PRIMERGY servers. By utilizing the Windows Admin Center UX design patterns and UI controls, Fujitsu has brought us a huge step towards our vision of end-to-end insight into server roles and services, to operating system, and to hardware management through the Windows Admin Center platform. [Learn more about Fujitsu's extensions and their development experience](case-studies/fujitsu.md).
 
 ![Fujitsu ServerView extension](../media/extensibility-overview/fujitsu-serverview-extension.png)
 
@@ -79,9 +79,3 @@ Pure Storage provides enterprise, all-flash data storage solutions that deliver 
 The QCT Management Suite extension complements Windows Admin Center by providing physical server monitoring and management for QCT Azure Stack HCI certified systems. The QCT Management Suite extension displays server hardware information, and provides an intuitive wizard UI to help replace physical disks efficiently, hardware event log tools, and S.M.A.R.T. based predictive disk management. [Learn more about the QCT Management Suite extension](case-studies/qct.md).
 
 ![QCT extension](../media/extensibility-overview/qct-extension.png)
-
-### Squared Up
-
-Squared Up provides a best-in-class monitoring experience based on System Center Operations Manager and integrating with Azure Log Analytics, Application Insights and other monitoring solutions. The [Squared Up extension](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-docs&utm_medium=public-relations&utm_campaign=honolulu) brings historical performance data and live application topologies and dependencies into the context of server and cluster management that Windows Admin Center provides, and early customers have acclaimed the value of bringing immense data from many disparate sources into a single experience. [Learn more about Squared Up's extension and their development experience](case-studies/squared-up.md).
-
-![Squared Up extension](../media/extensibility-overview/squaredup-extension.png)

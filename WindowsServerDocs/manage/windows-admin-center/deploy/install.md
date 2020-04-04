@@ -7,7 +7,7 @@ author: jwwool
 ms.author: jeffrew
 ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ---
 # Install Windows Admin Center
 
@@ -17,11 +17,11 @@ This topic describes how to install Windows Admin Center on a Windows PC or on a
 
 > [!Tip]
 > New to Windows Admin Center?
-> [Learn more about Windows Admin Center](../understand/windows-admin-center.md) or [Download now](https://aka.ms/windowsadmincenter).
+> [Learn more about Windows Admin Center](../overview.md) or [Download now](https://aka.ms/windowsadmincenter).
 
 ## Determine your installation type
 
-Review the [installation options](../plan/installation-options.md) which includes the [supported operating systems](../plan/installation-options.md#supported-operating-systems-installation). To install Windows Admin Center on a VM in Azure, see [Deploy Windows Admin Center in Azure](../azure/deploy-wac-in-azure.md).
+Review the [installation options](../plan/installation-options.md) which includes the [supported operating systems](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options#installation-supported-operating-systems). To install Windows Admin Center on a VM in Azure, see [Deploy Windows Admin Center in Azure](../azure/deploy-wac-in-azure.md).
 
 ## Install on Windows 10
 

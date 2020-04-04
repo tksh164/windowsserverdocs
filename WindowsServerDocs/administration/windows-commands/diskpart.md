@@ -1,6 +1,6 @@
 ---
-Title: DiskPart commands
-ms.prod: windows-server-threshold
+title: DiskPart commands
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo

@@ -3,15 +3,15 @@ title: Microsoft Azure and SDN
 description: You can use this topic to learn about the Software Defined Networking (SDN) technologies that are provided in Microsoft Azure.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 79e87013-7f27-4031-8383-288bcb291731
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ---
 # Microsoft Azure and Software Defined Networking
 

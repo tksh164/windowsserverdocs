@@ -3,15 +3,15 @@ title: Deploy Remote Access in a Cluster
 description: This topic is part of the guide Deploy Remote Access in a Cluster in Windows Server 2016.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid:
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ---
 # Deploy Remote Access in a Cluster
 

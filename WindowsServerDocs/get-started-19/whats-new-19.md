@@ -1,7 +1,7 @@
 ---
 title: What's new in Windows Server 2019
 description: An overview of new features in Windows Server 2019, including Desktop Experience, Storage Migration Service, System Insights, Azure Network Adapter, improvements to Storage Spaces Direct, and other changes.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 author: jasongerend
@@ -66,7 +66,7 @@ ATP's deep platform sensors and response actions expose memory and kernel level 
     Office files), scripts, lateral movement, ransomware behavior, and
     email-based threats.
 
--   [Network protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/network-protection-exploit-guard?ocid=cx-blog-mmpc)
+-   [Network protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/network-protection)
     protects the endpoint against web-based threats by blocking any outbound
     process on the device to untrusted hosts/IP addresses through Windows
     Defender SmartScreen.
@@ -94,7 +94,7 @@ executables that can bypass CI. 
 
 These security enhancements are integrated into the comprehensive SDN platform introduced in Windows Server 2016.
 
-For a complete list of what’s new in SDN see, [What’s New in SDN for Windows Server 2019](https://docs.microsoft.com/windows-server/networking/sdn/sdn-whats-new).
+For a complete list of what's new in SDN see, [What's New in SDN for Windows Server 2019](https://docs.microsoft.com/windows-server/networking/sdn/sdn-whats-new).
 
 ### Shielded Virtual Machines improvements
 
@@ -118,7 +118,7 @@ For a complete list of what’s new in SDN see, [What’s New in SDN for Windows
 
 - Improved coalescing of connections to deliver an uninterrupted and properly encrypted browsing experience.
 
-- Upgraded HTTP/2’s server-side cipher suite negotiation for automatic mitigation of connection failures and ease of deployment.
+- Upgraded HTTP/2's server-side cipher suite negotiation for automatic mitigation of connection failures and ease of deployment.
 
 - Changed our default TCP congestion provider to Cubic to give you more throughput!
 
@@ -172,7 +172,7 @@ Here's a list of what's new in Failover Clustering. For details, see [What's new
 
 ### Linux containers on Windows
 
-It is now possible to run Windows and Linux-based containers on the same container host, using the same docker daemon. This enables you to have a heterogenous container host environment while providing flexibility to application developers.
+It is now possible to run Windows and Linux-based containers on the same container host, using the same docker daemon. This enables you to have a heterogeneous container host environment while providing flexibility to application developers.
 
 ### Built-in Support for Kubernetes
 
@@ -230,7 +230,7 @@ The [Windows Time Service](https://docs.microsoft.com/windows-server/networking/
 
 ### New Deployment UI and Windows Admin Center extension for SDN
 
-Now, with Windows Server 2019, it’s easy to deploy and manage through a new deployment UI and Windows Admin Center extension that enable anyone to harness the power of SDN. 
+Now, with Windows Server 2019, it's easy to deploy and manage through a new deployment UI and Windows Admin Center extension that enable anyone to harness the power of SDN. 
 
 ### Persistent Memory support for Hyper-V VMs
 

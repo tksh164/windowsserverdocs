@@ -1,7 +1,7 @@
 ---
 title: Supported FreeBSD virtual machines on Hyper-V
 description: "Lists the Linux integration services and features included in each version"
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -71,7 +71,7 @@ The following feature distribution map indicates the features in each version. T
 
 2. The virtual DVD drive may not be recognized when BIS drivers are loaded on FreeBSD 8.x and 9.x unless you enable the legacy ATA driver through the following command.
     ```sh
-    # echo ‘hw.ata.disk_enable=1’ >> /boot/loader.conf
+    # echo ‘hw.ata.disk_enable=1' >> /boot/loader.conf
     # shutdown -r now
     ```
 

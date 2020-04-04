@@ -7,7 +7,7 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage
 ---
 # Server Performance Advisor User's Guide
@@ -22,7 +22,7 @@ SPA can help you with the following things:
 
 * Provide data reports and recommendations about common configuration and performance issues.
 
-* Provide best pratice recommendations based on the data collected.
+* Provide best practice recommendations based on the data collected.
 
 > [!NOTE]
 > The SPA Console does not make any changes to the servers.

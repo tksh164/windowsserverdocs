@@ -1,13 +1,13 @@
 ---
 title: Converged NIC configuration with a single network adapter
 description: In this topic, we provide you with the instructions to configure Converged NIC with a single NIC in your Hyper-V host.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: eed5c184-fa55-43a8-a879-b1610ebc70ca
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/14/2018
 ---
 

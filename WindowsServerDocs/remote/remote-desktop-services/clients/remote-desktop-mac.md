@@ -1,8 +1,8 @@
 ---
-title: Get started with Remote Desktop on Mac
+title: Get started with the macOS client
 description: Learn how to set up the Remote Desktop client for Mac
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,10 +12,10 @@ ms.assetid: 7afc65f8-3158-49c9-9d48-4dab1c69afba
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 10/09/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
 ---
-# Get started with Remote Desktop on Mac
+# Get started with the macOS client
 
 >Applies To: Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
 
@@ -29,12 +29,12 @@ You can use the Remote Desktop client for Mac to work with Windows apps, resourc
 ## Get the Remote Desktop client
 Follow these steps to get started with Remote Desktop on your Mac:
 
-1. Download the Microsoft Remote Desktop client from the [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
+1. Download the Microsoft Remote Desktop client from the [Mac App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
 2. [Set up your PC to accept remote connections](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop). (If you skip this step, you can't connect to your PC.)
 3. Add a Remote Desktop connection or a remote resource. You use a connection to connect directly to a Windows PC and a remote resource to use a RemoteApp program, session-based desktop, or a virtual desktop published on-premises using RemoteApp and Desktop Connections. This feature is typically available in corporate environments.
 
 ## What about the Mac beta client?
-We're testing new features on our preview channel on HockeyApp. Want to check it out? Go to [Microsoft Remote Desktop for Mac](https://go.microsoft.com/fwlink/?LinkID=619698) and click **Download**. You don't need to create an account or sign into HockeyApp to download the beta client.
+We're testing new features on our preview channel on AppCenter. Want to check it out? Go to [Microsoft Remote Desktop for Mac](https://aka.ms/rdmacbeta) and click **Download**. You don't need to create an account or sign into AppCenter to download the beta client.
 
 If you already have the client, you can check for updates to ensure you have the latest version. In the beta client, click **Microsoft Remote Desktop Beta** at the top, and then click **Check for updates**. 
 
@@ -154,19 +154,18 @@ Mac keyboard layouts differ from the Windows keyboard layouts.
 - The function keys can be activated in the session by pressing additionally the FN key (e.g.: FN + F1).
 - The Alt key to the right of the space bar on the Mac keyboard equals the Alt Gr/right Alt key in Windows.
 
-By default, the remote session will use the same keyboard locale as the OS you're running the client on. (If your Mac is running an en-us OS, that will be used for the remote sessions as well. If the OS keyboard locale is not used, check the keyboard setting on the remote PC and changing the setting manually. See the [Remote Desktop Client FAQ](remote-desktop-client-faq.md) for more information about keyboards and locales.
+By default, the remote session will use the same keyboard locale as the OS you're running the client on. (If your Mac is running an en-us OS, that will be used for the remote sessions as well.) If the OS keyboard locale is not used, check the keyboard setting on the remote PC and change it manually. See the [Remote Desktop Client FAQ](remote-desktop-client-faq.md) for more information about keyboards and locales.
 
 
 ## Support for Remote Desktop gateway pluggable authentication and authorization
 
-Windows Server 2012 R2 introduced support for a new authentication method, Remote Desktop Gateway pluggable authentication and authorization, which provides more flexibility for custom authentication routines. You can now this authentication model with the Mac client. 
+Windows Server 2012 R2 introduced support for a new authentication method, Remote Desktop Gateway pluggable authentication and authorization, which provides more flexibility for custom authentication routines. You can now try this authentication model with the Mac client. 
 
 > [!IMPORTANT]
 > Custom authentication and authorization models before Windows 8.1 are not supported, although the article above discusses them.
 
-To learn more about this feature, check out [http://aka.ms/paa-sample](http://aka.ms/paa-sample).
+To learn more about this feature, check out [https://aka.ms/paa-sample](https://aka.ms/paa-sample).
 
 
 > [!TIP]
 > Questions and comments are always welcome. However, please do NOT post a request for troubleshooting help by using the comment feature at the end of this article. Instead, go to the [Remote Desktop client forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) and start a new thread. Have a feature suggestion? Tell us in the [client user voice forum](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
-

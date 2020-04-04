@@ -3,15 +3,15 @@ title: Step 1 Plan the Advanced DirectAccess Infrastructure
 description: This topic is part of the guide Deploy a Single DirectAccess Server with Advanced Settings for Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ---
 # Step 1 Plan the Advanced DirectAccess Infrastructure
 
@@ -459,9 +459,9 @@ DirectAccess clients initiate communications with management servers that provid
   
 -   Domain controllers-Auto-discovery of domain controllers is performed for all domains in the same forest as the DirectAccess server and client computers.  
   
--   System Center Configuration Manager servers-Auto-discovery of System Center Configuration Manager servers is performed for all domains in the same forest as the DirectAccess server and client computers.  
+-   Microsoft Endpoint Configuration Manager servers-Auto-discovery of Configuration Manager servers is performed for all domains in the same forest as the DirectAccess server and client computers.  
   
-Domain controllers and System Center Configuration Manager servers are automatically detected the first time that DirectAccess is configured. Detected domain controllers are not displayed in the console, but settings can be retrieved by using the Windows PowerShell cmdlet **Get-DAMgmtServer -Type All**. If domain controller or System Center Configuration Manager servers are modified, clicking **Refresh Management Servers** in the Remote Access Management console refreshes the management server list.  
+Domain controllers and Configuration Manager servers are automatically detected the first time that DirectAccess is configured. Detected domain controllers are not displayed in the console, but settings can be retrieved by using the Windows PowerShell cmdlet **Get-DAMgmtServer -Type All**. If domain controller or Configuration Manager servers are modified, clicking **Refresh Management Servers** in the Remote Access Management console refreshes the management server list.  
   
 **Management server requirements**  
   

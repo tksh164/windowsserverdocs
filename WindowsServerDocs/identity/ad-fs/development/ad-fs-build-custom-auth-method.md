@@ -6,7 +6,7 @@ ms.author: billmath
 manager: daveba
 ms.date: 05/23/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ---
 
@@ -222,10 +222,10 @@ This walk-through uses Visual Studio 2012.  The project can be built using any d
          /// Returns an array indicating the type of claim that the adapter uses to identify the user being authenticated.
          /// Note that although the property is an array, only the first element is currently used.
          /// MUST BE ONE OF THE FOLLOWING
-         /// "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
+         /// "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
          /// "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
          /// "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-         /// "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid"
+         /// "https://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid"
          public string[] IdentityClaims
          {
          get { return new[] { "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" }; }
@@ -268,7 +268,7 @@ This walk-through uses Visual Studio 2012.  The project can be built using any d
      }
 ~~~
 
-12. Note the ‘todo’ for the **Resources.FormPageHtml** element above. 
+12. Note the ‘todo' for the **Resources.FormPageHtml** element above. 
 
    You can fix it in a minute, but first let's add the final required return statements, based on the newly implemented types, to your initial MyAdapter class.  To do this, add the items in *Italic* below to your existing IAuthenticationAdapter implementation:
 
@@ -437,7 +437,7 @@ Once the above pre-requisites are met, open a Windows PowerShell command window 
 
 3.  In the center pane, under **Multi-Factor Authentication**, click the **Edit** link to the right of **Global Settings**.
 
-4.  Under **Select additional authentication methods** at the bottom of the page, check the box for your provider’s AdminName. Click **Apply**.
+4.  Under **Select additional authentication methods** at the bottom of the page, check the box for your provider's AdminName. Click **Apply**.
 
 5.  To provide a “trigger” to invoke MFA using your adapter, under **Locations** check both **Extranet** and **Intranet**, for example. Click **OK**. (To configure triggers per relying party, see “Create the authentication policy using Windows PowerShell” below.)
 
@@ -465,12 +465,12 @@ Example:`PS C:\>Set-AdfsGlobalAuthenticationPolicy –AdditionalAuthenticationPr
 
 2. Next, configure global or relying-party-specific rules to trigger MFA:
 
-   Example 1: to create global rule to require MFA for External requests:`PS C:\>Set-AdfsAdditionalAuthenticationRule –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'`
+   Example 1: to create global rule to require MFA for External requests:`PS C:\>Set-AdfsAdditionalAuthenticationRule –AdditionalAuthenticationRules 'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'`
 
    Example 2: to create MFA rules to require MFA for external requests to a specific relying party.  (Note that individual providers cannot be connected to individual relying parties in AD FS in Windows Server 2012 R2).
 
        PS C:\>$rp = Get-AdfsRelyingPartyTrust –Name <Relying Party Name>
-       PS C:\>Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'
+       PS C:\>Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationRules 'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'
 
 ### Authenticate with MFA using your adapter
 
@@ -502,7 +502,7 @@ You now have a working implementation of the interface and you have the knowledg
 
 But wait – your example adapter will never successfully authenticate\!  This is because nothing in your code returns null for TryEndAuthentication.
 
-By completing the procedures above, you created a basic adapter implementation and added it to an AD FS server.  You can get the MFA forms page, but you cannot yet authenticated because you have not yet put the correct logic in your TryEndAuthentication implementation.  So let’s add that.
+By completing the procedures above, you created a basic adapter implementation and added it to an AD FS server.  You can get the MFA forms page, but you cannot yet authenticated because you have not yet put the correct logic in your TryEndAuthentication implementation.  So let's add that.
 
 Recall your TryEndAuthentication implementation:
 
@@ -514,7 +514,7 @@ Recall your TryEndAuthentication implementation:
 
      }
 
-Let’s update it so it doesn’t always return MyPresentationForm().  For this you can create one simple utility method within your class:
+Let's update it so it doesn't always return MyPresentationForm().  For this you can create one simple utility method within your class:
 
     static bool ValidateProofData(IProofData proofData, IAuthenticationContext authContext)
      {
@@ -544,7 +544,7 @@ Then, update TryEndAuthentication as below:
      outgoingClaims = new[] 
      {
      // Return the required authentication method claim, indicating the particulate authentication method used.
-     new Claim( "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", 
+     new Claim( "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", 
      "http://example.com/myauthenticationmethod1" )
      };
      return null;
@@ -612,7 +612,7 @@ Make sure you paste the updated .dll locally first. `C:\>.\gacutil.exe /if .\MFA
 
 3.  Under **Multi-Factor Authentication**, click the **Edit** link to the right of **Global Settings**.
 
-4.  Under **Select additional authentication methods**, check the box for your provider’s AdminName. Click **Apply**.
+4.  Under **Select additional authentication methods**, check the box for your provider's AdminName. Click **Apply**.
 
 5.  To provide a “trigger” to invoke MFA using your adapter, under Locations check both **Extranet** and **Intranet**, for example. Click **OK**.
 

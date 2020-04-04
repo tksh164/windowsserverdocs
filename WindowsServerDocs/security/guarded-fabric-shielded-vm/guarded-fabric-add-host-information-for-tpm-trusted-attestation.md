@@ -1,7 +1,7 @@
 ---
 title: Add host information for TPM-trusted attestation
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: f0aa575b-b34e-4f6c-8416-ed3e398e0ad2
 manager: dongill
@@ -12,7 +12,7 @@ ms.date: 06/21/2019
 
 >Applies to: Windows Server 2019, Windows Server (Semi-Annual Channel), Windows Server 2016
 
-### Add host information for TPM-trusted attestation
+# Add host information for TPM-trusted attestation
 
 For TPM mode, the fabric administrator captures three kinds of host information, each of which needs to be added to the HGS configuration:
 
